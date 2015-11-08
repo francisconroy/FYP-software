@@ -1,34 +1,41 @@
-  int FLTCLR = 2;
-  int HIN = 4;
-  int LIN = 3;
+#define FLTSDA 2
+#define HINA 3
+#define LINA 4
+#define FLTCLRA 5
+
+#define FLTSDB 7
+#define HINB 8
+#define LINB 9
+#define FLTCLRB 10
+  
 
 
 void setup() {
   // put your setup code here, to run once:
 
   
-  pinMode(FLTCLR,OUTPUT);
-  pinMode(HIN,OUTPUT);
-  pinMode(LIN,OUTPUT);
-  digitalWrite(FLTCLR,HIGH);
-  digitalWrite(HIN,LOW);
-  digitalWrite(LIN,LOW);
+  pinMode(FLTCLRA,OUTPUT);
+  pinMode(HINA,OUTPUT);
+  pinMode(LINA,OUTPUT);
+  digitalWrite(FLTCLRA,HIGH);
+  digitalWrite(HINA,LOW);
+  digitalWrite(LINA,LOW);
   delay(500);
-  digitalWrite(FLTCLR,LOW);
+  digitalWrite(FLTCLRA,LOW);
   delay(10);
-  digitalWrite(LIN,HIGH);
+  digitalWrite(LINA,HIGH);
   delay(10);
-  digitalWrite(LIN,LOW);
+  digitalWrite(LINA,LOW);
   delay(20);
 }
 
 void loop() {
   
-  digitalWrite(LIN,LOW);
-  digitalWrite(HIN,HIGH);
+  digitalWrite(LINA,LOW);
+  digitalWrite(HINA,HIGH);
   delay(4);
-  digitalWrite(HIN,LOW);
-  digitalWrite(LIN,HIGH);
+  digitalWrite(HINA,LOW);
+  digitalWrite(LINA,HIGH);
   delay(1);
   while(millis()>800)
   {
