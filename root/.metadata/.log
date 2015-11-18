@@ -1357,3 +1357,30 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumt
 
 !ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.651
 !MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.345
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.349
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.350
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.355
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.360
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.362
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.366
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.369
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-18 19:10:11.374
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
