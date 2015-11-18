@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K20P144M72SF1RM Rev. 0, Nov 2011
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-08, 16:25, # CodeGen: 1
+**     Date/Time   : 2015-11-08, 22:05, # CodeGen: 3
 **     Abstract    :
 **
 **     Settings    :
@@ -234,7 +234,7 @@
 **            Clock configuration 0                        : 
 **              __IRC_32kHz                                : 0.032768
 **              __IRC_4MHz                                 : 2
-**              __SYSTEM_OSC                               : 8
+**              __SYSTEM_OSC                               : 16
 **              __RTC_OSC                                  : 0
 **              Very low power mode                        : Disabled
 **              Clock source setting                       : configuration 0
@@ -308,10 +308,26 @@
 #include "FreeCntrLdd1.h"
 #include "TU1.h"
 #include "VREF.h"
-#include "Bit1.h"
-#include "BitIoLdd1.h"
-#include "Bit2.h"
-#include "BitIoLdd2.h"
+#include "FLTSD1.h"
+#include "HIN1.h"
+#include "LIN1.h"
+#include "FLTCLR1.h"
+#include "CLUTCH_SW.h"
+#include "FLTSD2.h"
+#include "HIN2.h"
+#include "LIN2.h"
+#include "FLTCLR2.h"
+#include "SH_UP.h"
+#include "SH_DN.h"
+#include "MOTEC_GEAR_SIG.h"
+#include "SHIFT_LEV_ANGLE.h"
+#include "TEMP1.h"
+#include "NEUT_SW.h"
+#include "TEMP2.h"
+#include "ROT_SW_P1.h"
+#include "ROT_SW_P2.h"
+#include "ROT_SW_P3.h"
+#include "MODE_ENG.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -398,9 +414,10 @@ void __init_hardware(void)
   SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(0x00) |
                 SIM_CLKDIV1_OUTDIV2(0x01) |
                 SIM_CLKDIV1_OUTDIV4(0x03); /* Set the system prescalers to safe value */
-  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTA=1 */
-  SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
-               SIM_SCGC5_PORTD_MASK |
+  /* SIM_SCGC5: PORTD=1,PORTC=1,PORTB=1,PORTA=1 */
+  SIM_SCGC5 |= SIM_SCGC5_PORTD_MASK |
+               SIM_SCGC5_PORTC_MASK |
+               SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
     /* PMC_REGSC: ACKISO=1 */
@@ -533,6 +550,22 @@ void PE_low_level_init(void)
   PORTA_DFCR &= (uint32_t)~(uint32_t)(PORT_DFCR_CS_MASK);
   /* PORTA_DFWR: FILT=0 */
   PORTA_DFWR &= (uint32_t)~(uint32_t)(PORT_DFWR_FILT(0x1F));
+  /* SIM_SOPT5: UART0TXSRC=0 */
+  SIM_SOPT5 &= (uint32_t)~(uint32_t)(SIM_SOPT5_UART0TXSRC(0x03));
+  /* PORTB_PCR16: ISF=0,MUX=3 */
+  PORTB_PCR16 = (uint32_t)((PORTB_PCR16 & (uint32_t)~(uint32_t)(
+                 PORT_PCR_ISF_MASK |
+                 PORT_PCR_MUX(0x04)
+                )) | (uint32_t)(
+                 PORT_PCR_MUX(0x03)
+                ));
+  /* PORTB_PCR17: ISF=0,MUX=3 */
+  PORTB_PCR17 = (uint32_t)((PORTB_PCR17 & (uint32_t)~(uint32_t)(
+                 PORT_PCR_ISF_MASK |
+                 PORT_PCR_MUX(0x04)
+                )) | (uint32_t)(
+                 PORT_PCR_MUX(0x03)
+                ));
   /* ### Init_GPIO "PTA" init code ... */
   PTA_Init();
 
@@ -551,10 +584,46 @@ void PE_low_level_init(void)
   VREF_Init();
 
 
-  /* ### BitIO_LDD "BitIoLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)BitIoLdd1_Init(NULL);
-  /* ### BitIO_LDD "BitIoLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)BitIoLdd2_Init(NULL);
+  /* ### BitIO_LDD "FLTSD1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)FLTSD1_Init(NULL);
+  /* ### BitIO_LDD "HIN1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)HIN1_Init(NULL);
+  /* ### BitIO_LDD "LIN1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)LIN1_Init(NULL);
+  /* ### BitIO_LDD "FLTCLR1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)FLTCLR1_Init(NULL);
+  /* ### BitIO_LDD "CLUTCH_SW" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)CLUTCH_SW_Init(NULL);
+  /* ### BitIO_LDD "FLTSD2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)FLTSD2_Init(NULL);
+  /* ### BitIO_LDD "HIN2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)HIN2_Init(NULL);
+  /* ### BitIO_LDD "LIN2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)LIN2_Init(NULL);
+  /* ### BitIO_LDD "FLTCLR2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)FLTCLR2_Init(NULL);
+  /* ### BitIO_LDD "SH_UP" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)SH_UP_Init(NULL);
+  /* ### BitIO_LDD "SH_DN" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)SH_DN_Init(NULL);
+  /* ### BitIO_LDD "MOTEC_GEAR_SIG" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)MOTEC_GEAR_SIG_Init(NULL);
+  /* ### BitIO_LDD "SHIFT_LEV_ANGLE" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)SHIFT_LEV_ANGLE_Init(NULL);
+  /* ### BitIO_LDD "TEMP1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)TEMP1_Init(NULL);
+  /* ### BitIO_LDD "NEUT_SW" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)NEUT_SW_Init(NULL);
+  /* ### BitIO_LDD "TEMP2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)TEMP2_Init(NULL);
+  /* ### BitIO_LDD "ROT_SW_P1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)ROT_SW_P1_Init(NULL);
+  /* ### BitIO_LDD "ROT_SW_P2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)ROT_SW_P2_Init(NULL);
+  /* ### BitIO_LDD "ROT_SW_P3" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)ROT_SW_P3_Init(NULL);
+  /* ### BitIO_LDD "MODE_ENG" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)MODE_ENG_Init(NULL);
   /* Enable interrupts of the given priority level */
   Cpu_SetBASEPRI(0U);
 }

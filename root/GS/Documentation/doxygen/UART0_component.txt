@@ -16,13 +16,13 @@ by the component.
 <tr><td colspan="4" class="ttitle1">UART0 Initialization</td></tr>
 <tr><td class="ttitle2">Address</td><td class="ttitle2">Register</td><td class="ttitle2">Register Value</td><td class="ttitle2">Register Description</td></tr>
 <tr><td>0x4006A003</td><td>UART0_C2</td>
-<td class="regResetVal">0x00000000</td>
+<td class="regNotResetVal">0x0000000C</td>
  <td>UART0_C2 register, peripheral UART0.</td></tr>
 <tr><td>0x4006A000</td><td>UART0_BDH</td>
 <td class="regResetVal">0x00000000</td>
  <td>UART0_BDH register, peripheral UART0.</td></tr>
 <tr><td>0x4006A001</td><td>UART0_BDL</td>
-<td class="regResetVal">0x00000004</td>
+<td class="regNotResetVal">0x00000027</td>
  <td>UART0_BDL register, peripheral UART0.</td></tr>
 <tr><td>0x4006A008</td><td>UART0_MA1</td>
 <td class="regResetVal">0x00000000</td>
@@ -31,7 +31,7 @@ by the component.
 <td class="regResetVal">0x00000000</td>
  <td>UART0_MA2 register, peripheral UART0.</td></tr>
 <tr><td>0x4006A00A</td><td>UART0_C4</td>
-<td class="regResetVal">0x00000000</td>
+<td class="regNotResetVal">0x00000010</td>
  <td>UART0_C4 register, peripheral UART0.</td></tr>
 <tr><td>0x4006A002</td><td>UART0_C1</td>
 <td class="regResetVal">0x00000000</td>
@@ -115,15 +115,15 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4006A003</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000000C</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>7</td><td>TIE</td><td>0x00</td><td>Transmitter Interrupt or DMA Transfer Enable</td>
 <tr><td>6</td><td>TCIE</td><td>0x00</td><td>Transmission Complete Interrupt Enable</td>
 <tr><td>5</td><td>RIE</td><td>0x00</td><td>Receiver Full Interrupt or DMA Transfer Enable</td>
 <tr><td>4</td><td>ILIE</td><td>0x00</td><td>Idle Line Interrupt Enable</td>
-<tr><td>3</td><td>TE</td><td>0x00</td><td>Transmitter Enable</td>
-<tr><td>2</td><td>RE</td><td>0x00</td><td>Receiver Enable</td>
+<tr><td>3</td><td>TE</td><td>0x01</td><td>Transmitter Enable</td>
+<tr><td>2</td><td>RE</td><td>0x01</td><td>Receiver Enable</td>
 <tr><td>1</td><td>RWU</td><td>0x00</td><td>Receiver Wakeup Control</td>
 <tr><td>0</td><td>SBK</td><td>0x00</td><td>Send Break</td>
 </tr></table>
@@ -173,7 +173,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4006A001</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000004</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000027</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000004</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 7</td><td>SBR</td><td>0x00</td><td>UART Baud Rate Bits</td>
@@ -246,13 +246,13 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4006A00A</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000010</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>7</td><td>MAEN1</td><td>0x00</td><td>Match Address Mode Enable 1</td>
 <tr><td>6</td><td>MAEN2</td><td>0x00</td><td>Match Address Mode Enable 2</td>
 <tr><td>5</td><td>M10</td><td>0x00</td><td>10-bit Mode select</td>
-<tr><td>0 - 4</td><td>BRFA</td><td>0x00</td><td>Baud Rate Fine Adjust</td>
+<tr><td>0 - 4</td><td>BRFA</td><td>0x10</td><td>Baud Rate Fine Adjust</td>
 </tr></table>
 <div class="reghdr1">UART0_C1</div>
 <div class="regdiag">
@@ -775,9 +775,9 @@ registers of the peripheral(s) configured by the component.
 **          Settings                                       : 
 **            Clock gate                                   : Do not initialize
 **            Clock settings                               : 
-**              Baud rate divisor                          : 4
-**              Baud rate fine adjust                      : 0
-**              Baud rate                                  : 327680 baud
+**              Baud rate divisor                          : 39
+**              Baud rate fine adjust                      : 16
+**              Baud rate                                  : 33182.785 baud
 **            Transfer settings                            : 
 **              Data format                                : 8bit
 **              Bits ordering                              : LSB first
@@ -827,8 +827,13 @@ registers of the peripheral(s) configured by the component.
 **            Receiver input                               : Not inverted
 **            Transmitter output                           : Not inverted
 **          Pins/Signals                                   : 
-**            Receiver pin                                 : Disabled
-**            Transmitter pin                              : Disabled
+**            Receiver pin                                 : Enabled
+**              Pin                                        : TSI0_CH9/PTB16/UART0_RX/EWM_IN
+**              Pin signal                                 : RX1
+**            Transmitter pin                              : Enabled
+**              Pin                                        : TSI0_CH10/PTB17/UART0_TX/EWM_OUT_b
+**              Pin signal                                 : TX1
+**              Transmitter modulation                     : Disabled
 **            CTS pin                                      : Disabled
 **            RTS pin                                      : Disabled
 **          Interrupts/DMA                                 : 
@@ -868,8 +873,8 @@ registers of the peripheral(s) configured by the component.
 **                Guard timer violated interrupt           : Disabled
 **          Initialization                                 : 
 **            Send break                                   : Disabled
-**            Enable transmitter                           : Disabled
-**            Enable receiver                              : Disabled
+**            Enable transmitter                           : Enabled
+**            Enable receiver                              : Enabled
 **            Call Init method                             : yes
 <h1>
 \endcode

@@ -1,0 +1,4 @@
+#Sun Nov 08 17:06:26 AEDT 2015
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=BitIO

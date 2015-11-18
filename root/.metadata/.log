@@ -697,3 +697,663 @@ com.processorexpert.core.ide.wizard.ui.WizardException: !NewProjectCreator_wizar
 
 !ENTRY org.eclipse.cdt.core 1 0 2015-11-08 15:57:54.588
 !MESSAGE Indexed 'GS' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.help.base 4 4 2015-11-08 17:05:47.994
+!MESSAGE Help documentation could not be indexed completely.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2015-11-08 17:05:47.994
+!MESSAGE Help document /com.freescale.doc.cde.getstart.userguide/3949846.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2015-11-08 17:05:47.994
+!MESSAGE Help document /com.freescale.doc.cde.getstart.userguide/3949211.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2015-11-08 17:05:47.994
+!MESSAGE Help document /com.freescale.doc.standalone.processorexpert.usersmanual/6859631.html cannot be opened.
+!SESSION 2015-11-14 17:14:38.049 -----------------------------------------------
+eclipse.buildId=3.0.0.
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.somniumtech.branding.kds.ide
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumtech.branding.kds.ide
+
+!ENTRY org.eclipse.core.net 1 0 2015-11-14 17:14:41.802
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-14 17:14:46.712
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.113
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.117
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.121
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.129
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.159
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.162
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.195
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.199
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-14 17:14:55.205
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+!SESSION 2015-11-15 11:55:52.583 -----------------------------------------------
+eclipse.buildId=3.0.0.
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.somniumtech.branding.kds.ide
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumtech.branding.kds.ide
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-11-15 11:55:54.360
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2015-11-15 11:55:56.271
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-15 11:56:01.370
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:03.974
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:03.978
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:03.981
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:04.398
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:04.414
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:04.417
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:04.459
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:04.463
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:56:04.468
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+!SESSION 2015-11-15 11:59:26.080 -----------------------------------------------
+eclipse.buildId=3.0.0.
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.somniumtech.branding.kds.ide
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumtech.branding.kds.ide
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-11-15 11:59:27.542
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2015-11-15 11:59:29.202
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-15 11:59:33.256
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.811
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.816
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.820
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.827
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.839
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.841
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.871
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.875
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 11:59:35.880
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-15 12:39:07.336
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:39:36.608
+!MESSAGE Processor Expert project not opened.
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:39:36.619
+!MESSAGE !NewProjectCreator_logError2!
+!STACK 1
+com.processorexpert.core.ide.wizard.ui.WizardException: !NewProjectCreator_wizardException3!ilg.gnuarmeclipse.debug.gdbjtag.openocd.launchConfigurationType
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createLaunchConfiguration(NewProjectCreator.java:1167)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createConfigurations(NewProjectCreator.java:1054)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createProject(NewProjectCreator.java:599)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createProjects(NewProjectCreator.java:534)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.doRun(CWWizard.java:460)
+	at com.processorexpert.derivative.npw.Wizard$1$1$1.run(Wizard.java:75)
+	at org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation.execute(WorkspaceModifyDelegatingOperation.java:69)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:466)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:374)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1059)
+	at com.processorexpert.derivative.npw.Wizard$1$1.run(Wizard.java:85)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:167)
+	at org.eclipse.ui.internal.UISynchronizer$3.run(UISynchronizer.java:165)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3994)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3671)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1059)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.invokeRunnable(CWWizard.java:395)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.performFinish(CWWizard.java:316)
+	at org.eclipse.jface.wizard.WizardDialog.finishPressed(WizardDialog.java:853)
+	at org.eclipse.jface.wizard.WizardDialog.buttonPressed(WizardDialog.java:438)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4199)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4042)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3669)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:832)
+	at org.eclipse.jface.window.Window.open(Window.java:808)
+	at com.processorexpert.ui.driversuite.newprojectwizard.MCUMenuHandler.execute(MCUMenuHandler.java:31)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:294)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:247)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:229)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:149)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:499)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:825)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.handleWidgetSelection(HandledContributionItem.java:701)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.access$6(HandledContributionItem.java:685)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem$4.handleEvent(HandledContributionItem.java:613)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4199)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4042)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3669)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+!SUBENTRY 1 com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:39:36.621
+!MESSAGE !NewProjectCreator_wizardException3!ilg.gnuarmeclipse.debug.gdbjtag.openocd.launchConfigurationType
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:39:36.621
+!MESSAGE !NewProjectCreator_logError2!
+!STACK 1
+com.processorexpert.core.ide.wizard.ui.WizardException: !NewProjectCreator_wizardException3!com.pemicro.debug.gdbjtag.pne.launchConfigurationType
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createLaunchConfiguration(NewProjectCreator.java:1167)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createConfigurations(NewProjectCreator.java:1054)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createProject(NewProjectCreator.java:599)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createProjects(NewProjectCreator.java:534)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.doRun(CWWizard.java:460)
+	at com.processorexpert.derivative.npw.Wizard$1$1$1.run(Wizard.java:75)
+	at org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation.execute(WorkspaceModifyDelegatingOperation.java:69)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:466)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:374)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1059)
+	at com.processorexpert.derivative.npw.Wizard$1$1.run(Wizard.java:85)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:167)
+	at org.eclipse.ui.internal.UISynchronizer$3.run(UISynchronizer.java:165)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3994)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3671)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1059)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.invokeRunnable(CWWizard.java:395)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.performFinish(CWWizard.java:316)
+	at org.eclipse.jface.wizard.WizardDialog.finishPressed(WizardDialog.java:853)
+	at org.eclipse.jface.wizard.WizardDialog.buttonPressed(WizardDialog.java:438)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4199)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4042)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3669)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:832)
+	at org.eclipse.jface.window.Window.open(Window.java:808)
+	at com.processorexpert.ui.driversuite.newprojectwizard.MCUMenuHandler.execute(MCUMenuHandler.java:31)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:294)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:247)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:229)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:149)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:499)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:825)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.handleWidgetSelection(HandledContributionItem.java:701)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.access$6(HandledContributionItem.java:685)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem$4.handleEvent(HandledContributionItem.java:613)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4199)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4042)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3669)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+!SUBENTRY 1 com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:39:36.621
+!MESSAGE !NewProjectCreator_wizardException3!com.pemicro.debug.gdbjtag.pne.launchConfigurationType
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-11-15 12:39:38.267
+!MESSAGE Indexed 'ETC' (2 sources, 19 headers) in 0.862 sec: 1,659 declarations; 3,026 references; 0 unresolved inclusions; 58 syntax errors; 14 unresolved names (0.3%)
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:40:49.607
+!MESSAGE !NewProjectCreator_logError2!
+!STACK 1
+com.processorexpert.core.ide.wizard.ui.WizardException: !NewProjectCreator_wizardException3!ilg.gnuarmeclipse.debug.gdbjtag.openocd.launchConfigurationType
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createLaunchConfiguration(NewProjectCreator.java:1167)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createConfigurations(NewProjectCreator.java:1054)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createProject(NewProjectCreator.java:599)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createProjects(NewProjectCreator.java:534)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.doRun(CWWizard.java:460)
+	at com.processorexpert.derivative.npw.Wizard$1$1$1.run(Wizard.java:75)
+	at org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation.execute(WorkspaceModifyDelegatingOperation.java:69)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:466)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:374)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1059)
+	at com.processorexpert.derivative.npw.Wizard$1$1.run(Wizard.java:85)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:167)
+	at org.eclipse.ui.internal.UISynchronizer$3.run(UISynchronizer.java:165)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3994)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3671)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1059)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.invokeRunnable(CWWizard.java:395)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.performFinish(CWWizard.java:316)
+	at org.eclipse.jface.wizard.WizardDialog.finishPressed(WizardDialog.java:853)
+	at org.eclipse.jface.wizard.WizardDialog.buttonPressed(WizardDialog.java:438)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4199)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4042)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3669)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:832)
+	at org.eclipse.jface.window.Window.open(Window.java:808)
+	at com.processorexpert.ui.driversuite.newprojectwizard.MCUMenuHandler.execute(MCUMenuHandler.java:31)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:294)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:247)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:229)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:149)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:499)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:825)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.handleWidgetSelection(HandledContributionItem.java:701)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.access$6(HandledContributionItem.java:685)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem$4.handleEvent(HandledContributionItem.java:613)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4199)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4042)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3669)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+!SUBENTRY 1 com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:40:49.608
+!MESSAGE !NewProjectCreator_wizardException3!ilg.gnuarmeclipse.debug.gdbjtag.openocd.launchConfigurationType
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:40:49.608
+!MESSAGE !NewProjectCreator_logError2!
+!STACK 1
+com.processorexpert.core.ide.wizard.ui.WizardException: !NewProjectCreator_wizardException3!com.pemicro.debug.gdbjtag.pne.launchConfigurationType
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createLaunchConfiguration(NewProjectCreator.java:1167)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createConfigurations(NewProjectCreator.java:1054)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createProject(NewProjectCreator.java:599)
+	at com.processorexpert.core.ide.newprojectwizard.NewProjectCreator.createProjects(NewProjectCreator.java:534)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.doRun(CWWizard.java:460)
+	at com.processorexpert.derivative.npw.Wizard$1$1$1.run(Wizard.java:75)
+	at org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation.execute(WorkspaceModifyDelegatingOperation.java:69)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:466)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:374)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1059)
+	at com.processorexpert.derivative.npw.Wizard$1$1.run(Wizard.java:85)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:167)
+	at org.eclipse.ui.internal.UISynchronizer$3.run(UISynchronizer.java:165)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:136)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3994)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3671)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:175)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:390)
+	at org.eclipse.jface.wizard.WizardDialog.run(WizardDialog.java:1059)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.invokeRunnable(CWWizard.java:395)
+	at com.processorexpert.core.ide.newprojectwizard.CWWizard.performFinish(CWWizard.java:316)
+	at org.eclipse.jface.wizard.WizardDialog.finishPressed(WizardDialog.java:853)
+	at org.eclipse.jface.wizard.WizardDialog.buttonPressed(WizardDialog.java:438)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4199)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4042)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3669)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:832)
+	at org.eclipse.jface.window.Window.open(Window.java:808)
+	at com.processorexpert.ui.driversuite.newprojectwizard.MCUMenuHandler.execute(MCUMenuHandler.java:31)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:294)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:247)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:229)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:149)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:499)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:825)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.handleWidgetSelection(HandledContributionItem.java:701)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.access$6(HandledContributionItem.java:685)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem$4.handleEvent(HandledContributionItem.java:613)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4199)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1467)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1475)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1279)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4042)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3669)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+!SUBENTRY 1 com.processorexpert.core.ide.wizard.ui 4 0 2015-11-15 12:40:49.608
+!MESSAGE !NewProjectCreator_wizardException3!com.pemicro.debug.gdbjtag.pne.launchConfigurationType
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-11-15 12:40:59.504
+!MESSAGE Indexed 'ETC' (6 sources, 65 headers) in 1.36 sec: 2,518 declarations; 7,286 references; 0 unresolved inclusions; 31 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.717
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.720
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.721
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.723
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.727
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.729
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.732
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.734
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:41:01.738
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.952
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.954
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.956
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.958
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.962
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.962
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.965
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.967
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 12:55:27.971
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+!SESSION 2015-11-15 15:22:14.136 -----------------------------------------------
+eclipse.buildId=3.0.0.
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.somniumtech.branding.kds.ide -psn_0_3539808
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumtech.branding.kds.ide -psn_0_3539808
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-11-15 15:22:31.032
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-15 15:22:43.837
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.320
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.328
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.334
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.349
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.377
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.382
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.446
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.455
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-15 15:22:50.466
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+!SESSION 2015-11-17 07:07:36.887 -----------------------------------------------
+eclipse.buildId=3.0.0.
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.somniumtech.branding.kds.ide -psn_0_69649
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumtech.branding.kds.ide -psn_0_69649
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-11-17 07:07:40.202
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2015-11-17 07:07:43.611
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-17 07:07:50.332
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.491
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.500
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.507
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.525
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.552
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.557
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.626
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.637
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-17 07:07:52.651
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)

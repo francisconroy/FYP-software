@@ -6,7 +6,7 @@
 **     Version     : Component 01.001, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-08, 16:25, # CodeGen: 1
+**     Date/Time   : 2015-11-08, 22:05, # CodeGen: 3
 **     Abstract    :
 **
 **     Settings    :
@@ -68,10 +68,26 @@
 #include "FreeCntrLdd1.h"
 #include "TU1.h"
 #include "VREF.h"
-#include "Bit1.h"
-#include "BitIoLdd1.h"
-#include "Bit2.h"
-#include "BitIoLdd2.h"
+#include "FLTSD1.h"
+#include "HIN1.h"
+#include "LIN1.h"
+#include "FLTCLR1.h"
+#include "CLUTCH_SW.h"
+#include "FLTSD2.h"
+#include "HIN2.h"
+#include "LIN2.h"
+#include "FLTCLR2.h"
+#include "SH_UP.h"
+#include "SH_DN.h"
+#include "MOTEC_GEAR_SIG.h"
+#include "SHIFT_LEV_ANGLE.h"
+#include "TEMP1.h"
+#include "NEUT_SW.h"
+#include "TEMP2.h"
+#include "ROT_SW_P1.h"
+#include "ROT_SW_P2.h"
+#include "ROT_SW_P3.h"
+#include "MODE_ENG.h"
 
 
 /*

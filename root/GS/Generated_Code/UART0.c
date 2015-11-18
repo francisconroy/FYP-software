@@ -7,7 +7,7 @@
 **     Version     : Component 01.007, Driver 01.07, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-08, 16:25, # CodeGen: 1
+**     Date/Time   : 2015-11-08, 22:05, # CodeGen: 3
 **     Abstract    :
 **          This file implements the UART (UART0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -18,9 +18,9 @@
 **          Settings                                       : 
 **            Clock gate                                   : Do not initialize
 **            Clock settings                               : 
-**              Baud rate divisor                          : 4
-**              Baud rate fine adjust                      : 0
-**              Baud rate                                  : 327680 baud
+**              Baud rate divisor                          : 39
+**              Baud rate fine adjust                      : 16
+**              Baud rate                                  : 33182.785 baud
 **            Transfer settings                            : 
 **              Data format                                : 8bit
 **              Bits ordering                              : LSB first
@@ -70,8 +70,13 @@
 **            Receiver input                               : Not inverted
 **            Transmitter output                           : Not inverted
 **          Pins/Signals                                   : 
-**            Receiver pin                                 : Disabled
-**            Transmitter pin                              : Disabled
+**            Receiver pin                                 : Enabled
+**              Pin                                        : TSI0_CH9/PTB16/UART0_RX/EWM_IN
+**              Pin signal                                 : RX1
+**            Transmitter pin                              : Enabled
+**              Pin                                        : TSI0_CH10/PTB17/UART0_TX/EWM_OUT_b
+**              Pin signal                                 : TX1
+**              Transmitter modulation                     : Disabled
 **            CTS pin                                      : Disabled
 **            RTS pin                                      : Disabled
 **          Interrupts/DMA                                 : 
@@ -111,8 +116,8 @@
 **                Guard timer violated interrupt           : Disabled
 **          Initialization                                 : 
 **            Send break                                   : Disabled
-**            Enable transmitter                           : Disabled
-**            Enable receiver                              : Disabled
+**            Enable transmitter                           : Enabled
+**            Enable receiver                              : Enabled
 **            Call Init method                             : yes
 **     Contents    :
 **         Init - void UART0_Init(void);
@@ -191,14 +196,14 @@ void UART0_Init(void)
   UART0_C2 &= (uint8_t)~(uint8_t)((UART_C2_TE_MASK | UART_C2_RE_MASK));
   /* UART0_BDH: LBKDIE=0,RXEDGIE=0,??=0,SBR=0 */
   UART0_BDH = UART_BDH_SBR(0x00);
-  /* UART0_BDL: SBR=4 */
-  UART0_BDL = UART_BDL_SBR(0x04);
+  /* UART0_BDL: SBR=0x27 */
+  UART0_BDL = UART_BDL_SBR(0x27);
   /* UART0_MA1: MA=0 */
   UART0_MA1 = UART_MA1_MA(0x00);
   /* UART0_MA2: MA=0 */
   UART0_MA2 = UART_MA2_MA(0x00);
-  /* UART0_C4: MAEN1=0,MAEN2=0,M10=0,BRFA=0 */
-  UART0_C4 = UART_C4_BRFA(0x00);
+  /* UART0_C4: MAEN1=0,MAEN2=0,M10=0,BRFA=0x10 */
+  UART0_C4 = UART_C4_BRFA(0x10);
   /* UART0_C1: LOOPS=0,UARTSWAI=0,RSRC=0,M=0,WAKE=0,ILT=0,PE=0,PT=0 */
   UART0_C1 = 0x00U;
   /* UART0_S2: LBKDIF=1,RXEDGIF=1,MSBF=0,RXINV=0,RWUID=0,BRK13=0,LBKDE=0,RAF=0 */
@@ -253,8 +258,8 @@ void UART0_Init(void)
               );
   /* UART0_C3: R8=0,T8=0,TXDIR=0,TXINV=0,ORIE=0,NEIE=0,FEIE=0,PEIE=0 */
   UART0_C3 = 0x00U;
-  /* UART0_C2: TIE=0,TCIE=0,RIE=0,ILIE=0,TE=0,RE=0,RWU=0,SBK=0 */
-  UART0_C2 = 0x00U;
+  /* UART0_C2: TIE=0,TCIE=0,RIE=0,ILIE=0,TE=1,RE=1,RWU=0,SBK=0 */
+  UART0_C2 = (UART_C2_TE_MASK | UART_C2_RE_MASK);
 }
 
 

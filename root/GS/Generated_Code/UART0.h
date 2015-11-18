@@ -7,7 +7,7 @@
 **     Version     : Component 01.007, Driver 01.07, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-08, 16:25, # CodeGen: 1
+**     Date/Time   : 2015-11-08, 22:05, # CodeGen: 3
 **     Abstract    :
 **          This file implements the UART (UART0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -18,9 +18,9 @@
 **          Settings                                       : 
 **            Clock gate                                   : Do not initialize
 **            Clock settings                               : 
-**              Baud rate divisor                          : 4
-**              Baud rate fine adjust                      : 0
-**              Baud rate                                  : 327680 baud
+**              Baud rate divisor                          : 39
+**              Baud rate fine adjust                      : 16
+**              Baud rate                                  : 33182.785 baud
 **            Transfer settings                            : 
 **              Data format                                : 8bit
 **              Bits ordering                              : LSB first
@@ -70,8 +70,13 @@
 **            Receiver input                               : Not inverted
 **            Transmitter output                           : Not inverted
 **          Pins/Signals                                   : 
-**            Receiver pin                                 : Disabled
-**            Transmitter pin                              : Disabled
+**            Receiver pin                                 : Enabled
+**              Pin                                        : TSI0_CH9/PTB16/UART0_RX/EWM_IN
+**              Pin signal                                 : RX1
+**            Transmitter pin                              : Enabled
+**              Pin                                        : TSI0_CH10/PTB17/UART0_TX/EWM_OUT_b
+**              Pin signal                                 : TX1
+**              Transmitter modulation                     : Disabled
 **            CTS pin                                      : Disabled
 **            RTS pin                                      : Disabled
 **          Interrupts/DMA                                 : 
@@ -111,8 +116,8 @@
 **                Guard timer violated interrupt           : Disabled
 **          Initialization                                 : 
 **            Send break                                   : Disabled
-**            Enable transmitter                           : Disabled
-**            Enable receiver                              : Disabled
+**            Enable transmitter                           : Enabled
+**            Enable receiver                              : Enabled
 **            Call Init method                             : yes
 **     Contents    :
 **         Init - void UART0_Init(void);

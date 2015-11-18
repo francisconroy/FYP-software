@@ -37,10 +37,26 @@
 #include "FreeCntrLdd1.h"
 #include "TU1.h"
 #include "VREF.h"
-#include "Bit1.h"
-#include "BitIoLdd1.h"
-#include "Bit2.h"
-#include "BitIoLdd2.h"
+#include "FLTSD1.h"
+#include "HIN1.h"
+#include "LIN1.h"
+#include "FLTCLR1.h"
+#include "CLUTCH_SW.h"
+#include "FLTSD2.h"
+#include "HIN2.h"
+#include "LIN2.h"
+#include "FLTCLR2.h"
+#include "SH_UP.h"
+#include "SH_DN.h"
+#include "MOTEC_GEAR_SIG.h"
+#include "SHIFT_LEV_ANGLE.h"
+#include "TEMP1.h"
+#include "NEUT_SW.h"
+#include "TEMP2.h"
+#include "ROT_SW_P1.h"
+#include "ROT_SW_P2.h"
+#include "ROT_SW_P3.h"
+#include "MODE_ENG.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -53,6 +69,8 @@ int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
 {
   /* Write your local variable definition here */
+int initial_gear = 0; // 0 - Neutral, 1 - first ... etc
+int current_gear =
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
@@ -62,7 +80,24 @@ int main(void)
 
   //FRANKS CODE HERE
 PTA_Init();
-GPIO_PDD_SetPortDirection();
+
+// HANDSHAKE WITH THE ETC MODULE
+
+
+// RECIEVE THE GEAR UPDATE FROM THE ETC MODULE
+
+// INITIALISE THE GEAR SHIFT ELECTRONICS - SEND THEM LIVE
+
+// SEND INIT MESSAGE TO THE LCD
+
+
+
+
+// DETERMINE THE CURRENT GEAR
+
+//
+
+
 
   /* For example: for(;;) { } */
 

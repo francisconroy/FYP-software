@@ -33,8 +33,26 @@
 - \subpage TU1
 - \subpage FreeCntrLdd1
 - \subpage VREF
-- \subpage BitIoLdd1
-- \subpage BitIoLdd2
+- \subpage FLTSD1
+- \subpage HIN1
+- \subpage LIN1
+- \subpage FLTCLR1
+- \subpage CLUTCH_SW
+- \subpage FLTSD2
+- \subpage HIN2
+- \subpage LIN2
+- \subpage FLTCLR2
+- \subpage SH_UP
+- \subpage SH_DN
+- \subpage MOTEC_GEAR_SIG
+- \subpage SHIFT_LEV_ANGLE
+- \subpage TEMP1
+- \subpage NEUT_SW
+- \subpage TEMP2
+- \subpage ROT_SW_P1
+- \subpage ROT_SW_P2
+- \subpage ROT_SW_P3
+- \subpage MODE_ENG
 
 */
 
