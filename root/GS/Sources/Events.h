@@ -51,6 +51,7 @@
 #include "FLTCLR2.h"
 #include "SH_UP.h"
 #include "SH_DN.h"
+#include "LED.h"
 #include "MOTEC_GEAR_SIG.h"
 #include "SHIFT_LEV_ANGLE.h"
 #include "TEMP1.h"
@@ -60,6 +61,10 @@
 #include "ROT_SW_P2.h"
 #include "ROT_SW_P3.h"
 #include "MODE_ENG.h"
+#include "AD1.h"
+#include "AS1.h"
+#include "MQX1.h"
+#include "SystemTimer1.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -80,6 +85,42 @@ extern "C" {
 /* ===================================================================*/
 void Cpu_OnNMIINT(void);
 
+
+/*
+** ===================================================================
+**     Event       :  AS1_OnBlockReceived (module Events)
+**
+**     Component   :  AS1 [Serial_LDD]
+*/
+/*!
+**     @brief
+**         This event is called when the requested number of data is
+**         moved to the input buffer.
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. This pointer is passed
+**                           as the parameter of Init method.
+*/
+/* ===================================================================*/
+void AS1_OnBlockReceived(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Event       :  AS1_OnBlockSent (module Events)
+**
+**     Component   :  AS1 [Serial_LDD]
+*/
+/*!
+**     @brief
+**         This event is called after the last character from the
+**         output buffer is moved to the transmitter. 
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. This pointer is passed
+**                           as the parameter of Init method.
+*/
+/* ===================================================================*/
+void AS1_OnBlockSent(LDD_TUserData *UserDataPtr);
 
 /* END Events */
 

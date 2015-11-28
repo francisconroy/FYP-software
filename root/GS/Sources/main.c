@@ -30,6 +30,7 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "mqx_tasks.h"
 #include "PTA.h"
 #include "ADC0.h"
 #include "UART0.h"
@@ -48,6 +49,7 @@
 #include "FLTCLR2.h"
 #include "SH_UP.h"
 #include "SH_DN.h"
+#include "LED.h"
 #include "MOTEC_GEAR_SIG.h"
 #include "SHIFT_LEV_ANGLE.h"
 #include "TEMP1.h"
@@ -57,6 +59,10 @@
 #include "ROT_SW_P2.h"
 #include "ROT_SW_P3.h"
 #include "MODE_ENG.h"
+#include "AD1.h"
+#include "AS1.h"
+#include "MQX1.h"
+#include "SystemTimer1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -70,7 +76,7 @@ int main(void)
 {
   /* Write your local variable definition here */
 int initial_gear = 0; // 0 - Neutral, 1 - first ... etc
-int current_gear =
+int current_gear = 0;
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
@@ -79,7 +85,7 @@ int current_gear =
   /* Write your code here */
 
   //FRANKS CODE HERE
-PTA_Init();
+//PTA_Init();
 
 // HANDSHAKE WITH THE ETC MODULE
 

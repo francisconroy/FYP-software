@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K20P144M72SF1RM Rev. 0, Nov 2011
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-08, 22:05, # CodeGen: 3
+**     Date/Time   : 2015-11-23, 18:47, # CodeGen: 13
 **     Abstract    :
 **
 **     Settings    :
@@ -23,7 +23,17 @@
 **              Fast internal reference clock [MHz]        : 4
 **              Initialize fast trim value                 : no
 **            RTC oscillator                               : Disabled
-**            System oscillator 0                          : Disabled
+**            System oscillator 0                          : Enabled
+**              Clock source                               : External crystal
+**                Clock input pin                          : 
+**                  Pin name                               : EXTAL0/PTA18/FTM0_FLT2/FTM_CLKIN0
+**                  Pin signal                             : 
+**                Clock output pin                         : 
+**                  Pin name                               : XTAL0/PTA19/FTM1_FLT0/FTM_CLKIN1/LPTMR0_ALT1
+**                  Pin signal                             : EXT_CLK
+**                Clock frequency [MHz]                    : 16
+**                Capacitor load                           : 0pF
+**                Oscillator operating mode                : Low power
 **            Clock source settings                        : 1
 **              Clock source setting 0                     : 
 **                Internal reference clock                 : 
@@ -34,7 +44,7 @@
 **                External reference clock                 : 
 **                  OSC0ERCLK clock                        : Enabled
 **                  OSC0ERCLK in stop                      : Disabled
-**                  OSC0ERCLK clock [MHz]                  : 0
+**                  OSC0ERCLK clock [MHz]                  : 16
 **                  ERCLK32K clock source                  : Auto select
 **                  ERCLK32K. clock [kHz]                  : 0.001
 **                MCG settings                             : 
@@ -42,7 +52,7 @@
 **                  MCG output clock                       : FLL clock
 **                  MCG output [MHz]                       : 20.97152
 **                  MCG external ref. clock source         : System oscillator 0
-**                  MCG external ref. clock [MHz]          : 0
+**                  MCG external ref. clock [MHz]          : 16
 **                  Clock monitor                          : Disabled
 **                  FLL settings                           : 
 **                    FLL module                           : Enabled
@@ -241,7 +251,7 @@
 **                MCG mode                                 : FEI
 **                MCG output [MHz]                         : 20.97152
 **                MCGIRCLK clock [MHz]                     : 0.032768
-**                OSCERCLK clock [MHz]                     : 0
+**                OSCERCLK clock [MHz]                     : 16
 **                ERCLK32K. clock [kHz]                    : 0.001
 **                MCGFFCLK [kHz]                           : 32.768
 **              System clocks                              : 
@@ -300,14 +310,10 @@
 
 /* MODULE Cpu. */
 
-/* {Default RTOS Adapter} No RTOS includes */
-#include "PTA.h"
-#include "ADC0.h"
-#include "UART0.h"
-#include "FC1.h"
-#include "FreeCntrLdd1.h"
+/* MQX Lite include files */
+#include "mqxlite.h"
+#include "mqxlite_prv.h"
 #include "TU1.h"
-#include "VREF.h"
 #include "FLTSD1.h"
 #include "HIN1.h"
 #include "LIN1.h"
@@ -319,7 +325,7 @@
 #include "FLTCLR2.h"
 #include "SH_UP.h"
 #include "SH_DN.h"
-#include "MOTEC_GEAR_SIG.h"
+#include "LED.h"
 #include "SHIFT_LEV_ANGLE.h"
 #include "TEMP1.h"
 #include "NEUT_SW.h"
@@ -328,11 +334,16 @@
 #include "ROT_SW_P2.h"
 #include "ROT_SW_P3.h"
 #include "MODE_ENG.h"
+#include "AD1.h"
+#include "AS1.h"
+#include "MQX1.h"
+#include "SystemTimer1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
 #include "Events.h"
+#include "mqx_tasks.h"
 #include "Cpu.h"
 
 #ifdef __cplusplus
@@ -363,7 +374,7 @@ void Cpu_SetBASEPRI(uint32_t Level);
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-PE_ISR(Cpu_INT_NMIInterrupt)
+void Cpu_INT_NMIInterrupt(void)
 {
   Cpu_OnNMIINT();
 }
@@ -414,8 +425,9 @@ void __init_hardware(void)
   SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(0x00) |
                 SIM_CLKDIV1_OUTDIV2(0x01) |
                 SIM_CLKDIV1_OUTDIV4(0x03); /* Set the system prescalers to safe value */
-  /* SIM_SCGC5: PORTD=1,PORTC=1,PORTB=1,PORTA=1 */
-  SIM_SCGC5 |= SIM_SCGC5_PORTD_MASK |
+  /* SIM_SCGC5: PORTE=1,PORTD=1,PORTC=1,PORTB=1,PORTA=1 */
+  SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
+               SIM_SCGC5_PORTD_MASK |
                SIM_SCGC5_PORTC_MASK |
                SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
@@ -431,14 +443,18 @@ void __init_hardware(void)
   SIM_SOPT2 &= (uint32_t)~(uint32_t)(SIM_SOPT2_PLLFLLSEL_MASK); /* Select FLL as a clock source for various peripherals */
   /* SIM_SOPT1: OSC32KSEL=3 */
   SIM_SOPT1 |= SIM_SOPT1_OSC32KSEL(0x03); /* LPO 1kHz oscillator drives 32 kHz clock for various peripherals */
+  /* PORTA_PCR18: ISF=0,MUX=0 */
+  PORTA_PCR18 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
+  /* PORTA_PCR19: ISF=0,MUX=0 */
+  PORTA_PCR19 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
   /* Switch to FEI Mode */
   /* MCG_C1: CLKS=0,FRDIV=0,IREFS=1,IRCLKEN=1,IREFSTEN=0 */
   MCG_C1 = MCG_C1_CLKS(0x00) |
            MCG_C1_FRDIV(0x00) |
            MCG_C1_IREFS_MASK |
            MCG_C1_IRCLKEN_MASK;
-  /* MCG_C2: LOCRE0=0,??=0,RANGE0=0,HGO0=0,EREFS0=0,LP=0,IRCS=0 */
-  MCG_C2 = MCG_C2_RANGE0(0x00);
+  /* MCG_C2: LOCRE0=0,??=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
+  MCG_C2 = (MCG_C2_RANGE0(0x02) | MCG_C2_EREFS0_MASK);
   /* MCG_C4: DMX32=0,DRST_DRS=0 */
   MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));
   /* OSC_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
@@ -495,6 +511,7 @@ void PE_low_level_init(void)
   #ifdef PEX_RTOS_INIT
     PEX_RTOS_INIT();                   /* Initialization of the selected RTOS. Macro is defined by the RTOS component. */
   #endif
+  /* {MQXLite RTOS Adapter} Set new interrupt vector (function handler and ISR parameter) */
       /* Initialization of the SIM module */
   /* PORTA_PCR4: ISF=0,MUX=7 */
   PORTA_PCR4 = (uint32_t)((PORTA_PCR4 & (uint32_t)~(uint32_t)(
@@ -536,54 +553,8 @@ void PE_low_level_init(void)
   /* SMC_PMPROT: ??=0,??=0,AVLP=0,??=0,ALLS=0,??=0,AVLLS=0,??=0 */
   SMC_PMPROT = 0x00U;                  /* Setup Power mode protection register */
   /* Common initialization of the CPU registers */
-  /* NVICIP87: PRI87=0 */
-  NVICIP87 = NVIC_IP_PRI87(0x00);
-  /* NVICIP57: PRI57=0 */
-  NVICIP57 = NVIC_IP_PRI57(0x00);
-  /* NVICIP45: PRI45=0 */
-  NVICIP45 = NVIC_IP_PRI45(0x00);
-  /* NVICIP46: PRI46=0 */
-  NVICIP46 = NVIC_IP_PRI46(0x00);
   /* NVICIP20: PRI20=0 */
   NVICIP20 = NVIC_IP_PRI20(0x00);
-  /* PORTA_DFCR: CS=0 */
-  PORTA_DFCR &= (uint32_t)~(uint32_t)(PORT_DFCR_CS_MASK);
-  /* PORTA_DFWR: FILT=0 */
-  PORTA_DFWR &= (uint32_t)~(uint32_t)(PORT_DFWR_FILT(0x1F));
-  /* SIM_SOPT5: UART0TXSRC=0 */
-  SIM_SOPT5 &= (uint32_t)~(uint32_t)(SIM_SOPT5_UART0TXSRC(0x03));
-  /* PORTB_PCR16: ISF=0,MUX=3 */
-  PORTB_PCR16 = (uint32_t)((PORTB_PCR16 & (uint32_t)~(uint32_t)(
-                 PORT_PCR_ISF_MASK |
-                 PORT_PCR_MUX(0x04)
-                )) | (uint32_t)(
-                 PORT_PCR_MUX(0x03)
-                ));
-  /* PORTB_PCR17: ISF=0,MUX=3 */
-  PORTB_PCR17 = (uint32_t)((PORTB_PCR17 & (uint32_t)~(uint32_t)(
-                 PORT_PCR_ISF_MASK |
-                 PORT_PCR_MUX(0x04)
-                )) | (uint32_t)(
-                 PORT_PCR_MUX(0x03)
-                ));
-  /* ### Init_GPIO "PTA" init code ... */
-  PTA_Init();
-
-
-  /* ### Init_ADC "ADC0" init code ... */
-  ADC0_Init();
-
-
-  /* ### Init_UART "UART0" init code ... */
-  UART0_Init();
-
-
-  /* ### FreeCntr_LDD "FreeCntrLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)FreeCntrLdd1_Init(NULL);
-  /* ### Init_VREF "VREF" init code ... */
-  VREF_Init();
-
-
   /* ### BitIO_LDD "FLTSD1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)FLTSD1_Init(NULL);
   /* ### BitIO_LDD "HIN1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
@@ -606,8 +577,8 @@ void PE_low_level_init(void)
   (void)SH_UP_Init(NULL);
   /* ### BitIO_LDD "SH_DN" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)SH_DN_Init(NULL);
-  /* ### BitIO_LDD "MOTEC_GEAR_SIG" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
-  (void)MOTEC_GEAR_SIG_Init(NULL);
+  /* ### BitIO_LDD "LED" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)LED_Init(NULL);
   /* ### BitIO_LDD "SHIFT_LEV_ANGLE" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)SHIFT_LEV_ANGLE_Init(NULL);
   /* ### BitIO_LDD "TEMP1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
@@ -624,8 +595,6 @@ void PE_low_level_init(void)
   (void)ROT_SW_P3_Init(NULL);
   /* ### BitIO_LDD "MODE_ENG" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)MODE_ENG_Init(NULL);
-  /* Enable interrupts of the given priority level */
-  Cpu_SetBASEPRI(0U);
 }
   /* Flash configuration field */
   __attribute__ ((section (".cfmconfig"))) const uint8_t _cfm[0x10] = {

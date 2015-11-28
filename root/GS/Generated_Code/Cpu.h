@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K20P144M72SF1RM Rev. 0, Nov 2011
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-08, 16:25, # CodeGen: 1
+**     Date/Time   : 2015-11-23, 18:47, # CodeGen: 13
 **     Abstract    :
 **
 **     Settings    :
@@ -92,6 +92,7 @@ extern "C" {
 #define CPU_CORE_CLK_HZ_CLOCK_CONFIG0   20971520U /* Value of the core/system clock frequency in the clock configuration 0 in Hz. */
 
 
+#define CPU_XTAL_CLK_HZ                 16000000U /* Value of the external crystal or oscillator clock frequency in Hz */
 #define CPU_INT_SLOW_CLK_HZ             32768U /* Value of the slow internal oscillator clock frequency in Hz  */
 #define CPU_INT_FAST_CLK_HZ             4000000U /* Value of the fast internal oscillator clock frequency in Hz  */
 
@@ -109,7 +110,7 @@ extern "C" {
 #define CPU_USB_CLK_HZ_CONFIG_0         0UL /* USB clock frequency in clock configuration 0 */
 #define CPU_PLL_FLL_CLK_HZ_CONFIG_0     20971520UL /* PLL/FLL clock frequency in clock configuration 0 */
 #define CPU_MCGIR_CLK_HZ_CONFIG_0       32768UL /* MCG internal reference clock frequency in clock configuration 0 */
-#define CPU_OSCER_CLK_HZ_CONFIG_0       0UL /* System OSC external reference clock frequency in clock configuration 0 */
+#define CPU_OSCER_CLK_HZ_CONFIG_0       16000000UL /* System OSC external reference clock frequency in clock configuration 0 */
 #define CPU_ERCLK32K_CLK_HZ_CONFIG_0    1000UL /* External reference clock 32k frequency in clock configuration 0 */
 #define CPU_MCGFF_CLK_HZ_CONFIG_0       32768UL /* MCG fixed frequency clock */
 
@@ -159,8 +160,8 @@ extern volatile uint8_t SR_lock;
 */
 void PE_low_level_init(void);
 
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(Cpu_INT_NMIInterrupt);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void Cpu_INT_NMIInterrupt(void);
 /*
 ** ===================================================================
 **     Method      :  Cpu_INT_NMIInterrupt (component MK20DX256LH7)

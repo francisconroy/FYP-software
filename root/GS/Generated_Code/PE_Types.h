@@ -6,7 +6,7 @@
 **     Component   : PE_Types
 **     Version     : Driver 01.01
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-08, 22:05, # CodeGen: 3
+**     Date/Time   : 2015-11-23, 18:47, # CodeGen: 13
 **     Abstract    :
 **         PE_Types.h - contains definitions of basic types,
 **         register access macros and hardware specific macros
@@ -205,27 +205,29 @@ typedef unsigned long int       uint32;
 ** ===========================================================================
 */
 #define PE_LDD_COMPONENT_TU1_ID                  0x00U
-#define PE_LDD_COMPONENT_FreeCntrLdd1_ID         0x01U
-#define PE_LDD_COMPONENT_FLTSD1_ID               0x02U
-#define PE_LDD_COMPONENT_HIN1_ID                 0x03U
-#define PE_LDD_COMPONENT_LIN1_ID                 0x04U
-#define PE_LDD_COMPONENT_FLTCLR1_ID              0x05U
-#define PE_LDD_COMPONENT_CLUTCH_SW_ID            0x06U
-#define PE_LDD_COMPONENT_FLTSD2_ID               0x07U
-#define PE_LDD_COMPONENT_HIN2_ID                 0x08U
-#define PE_LDD_COMPONENT_LIN2_ID                 0x09U
-#define PE_LDD_COMPONENT_FLTCLR2_ID              0x0AU
-#define PE_LDD_COMPONENT_SH_UP_ID                0x0BU
-#define PE_LDD_COMPONENT_SH_DN_ID                0x0CU
-#define PE_LDD_COMPONENT_MOTEC_GEAR_SIG_ID       0x0DU
-#define PE_LDD_COMPONENT_SHIFT_LEV_ANGLE_ID      0x0EU
-#define PE_LDD_COMPONENT_TEMP1_ID                0x0FU
-#define PE_LDD_COMPONENT_NEUT_SW_ID              0x10U
-#define PE_LDD_COMPONENT_TEMP2_ID                0x11U
-#define PE_LDD_COMPONENT_ROT_SW_P1_ID            0x12U
-#define PE_LDD_COMPONENT_ROT_SW_P2_ID            0x13U
-#define PE_LDD_COMPONENT_ROT_SW_P3_ID            0x14U
-#define PE_LDD_COMPONENT_MODE_ENG_ID             0x15U
+#define PE_LDD_COMPONENT_FLTSD1_ID               0x01U
+#define PE_LDD_COMPONENT_HIN1_ID                 0x02U
+#define PE_LDD_COMPONENT_LIN1_ID                 0x03U
+#define PE_LDD_COMPONENT_FLTCLR1_ID              0x04U
+#define PE_LDD_COMPONENT_CLUTCH_SW_ID            0x05U
+#define PE_LDD_COMPONENT_FLTSD2_ID               0x06U
+#define PE_LDD_COMPONENT_HIN2_ID                 0x07U
+#define PE_LDD_COMPONENT_LIN2_ID                 0x08U
+#define PE_LDD_COMPONENT_FLTCLR2_ID              0x09U
+#define PE_LDD_COMPONENT_SH_UP_ID                0x0AU
+#define PE_LDD_COMPONENT_SH_DN_ID                0x0BU
+#define PE_LDD_COMPONENT_LED_ID                  0x0CU
+#define PE_LDD_COMPONENT_SHIFT_LEV_ANGLE_ID      0x0DU
+#define PE_LDD_COMPONENT_TEMP1_ID                0x0EU
+#define PE_LDD_COMPONENT_NEUT_SW_ID              0x0FU
+#define PE_LDD_COMPONENT_TEMP2_ID                0x10U
+#define PE_LDD_COMPONENT_ROT_SW_P1_ID            0x11U
+#define PE_LDD_COMPONENT_ROT_SW_P2_ID            0x12U
+#define PE_LDD_COMPONENT_ROT_SW_P3_ID            0x13U
+#define PE_LDD_COMPONENT_MODE_ENG_ID             0x14U
+#define PE_LDD_COMPONENT_AD1_ID                  0x15U
+#define PE_LDD_COMPONENT_AS1_ID                  0x16U
+#define PE_LDD_COMPONENT_SystemTimer1_ID         0x17U
 
 /*
 ** ===================================================================
@@ -266,7 +268,14 @@ extern void PE_FillMemory(register void* SourceAddressPtr, register uint8_t c, r
 ** RTOS specific types and constants
 ** ===================================================================
 */
-/* {Default RTOS Adapter} RTOS specific definition of type of Ioctl() command constants */
+/*! {MQXLite RTOS Adapter} Type of the parameter passed into ISR from RTOS interrupt dispatcher */
+typedef void *LDD_RTOS_TISRParameter;
+
+/*! {MQXLite RTOS Adapter} Structure for saving/restoring interrupt vector */
+typedef struct {
+  void (*isrFunction)(LDD_RTOS_TISRParameter); /*!< ISR function handler */
+  LDD_RTOS_TISRParameter isrData;      /*!< ISR parameter */
+} LDD_RTOS_TISRVectorSettings;
 
 
 /*
@@ -274,7 +283,6 @@ extern void PE_FillMemory(register void* SourceAddressPtr, register uint8_t c, r
 ** Published RTOS settings and constants
 ** ===================================================================
 */
-/* {Default RTOS Adapter} No published RTOS settings */
 
 
 /*

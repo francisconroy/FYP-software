@@ -27,12 +27,7 @@
 <br/>
 
 \page page_components Components 
-- \subpage PTA
-- \subpage ADC0
-- \subpage UART0
 - \subpage TU1
-- \subpage FreeCntrLdd1
-- \subpage VREF
 - \subpage FLTSD1
 - \subpage HIN1
 - \subpage LIN1
@@ -44,7 +39,7 @@
 - \subpage FLTCLR2
 - \subpage SH_UP
 - \subpage SH_DN
-- \subpage MOTEC_GEAR_SIG
+- \subpage LED
 - \subpage SHIFT_LEV_ANGLE
 - \subpage TEMP1
 - \subpage NEUT_SW
@@ -53,6 +48,9 @@
 - \subpage ROT_SW_P2
 - \subpage ROT_SW_P3
 - \subpage MODE_ENG
+- \subpage AD1
+- \subpage AS1
+- \subpage SystemTimer1
 
 */
 

@@ -403,9 +403,9 @@ PE_DEBUGHALT();
       <group name="Settings">
         <Clock_gate v="Do not initialize" />
         <group name="Clock settings">
-          <Baud_rate_divisor v="4" />
-          <Baud_rate_fine_adjust v="0" />
-          <Baud_rate v="327680 baud" />
+          <Baud_rate_divisor v="39" />
+          <Baud_rate_fine_adjust v="16" />
+          <Baud_rate v="33182.785 baud" />
         </group>
         <group name="Transfer settings">
           <Data_format v="8bit" />
@@ -466,8 +466,13 @@ PE_DEBUGHALT();
         <Transmitter_output v="Not inverted" />
       </group>
       <group name="Pins/Signals">
-        <boolgroup name="Receiver pin" v="Disabled" />
-        <boolgroup name="Transmitter pin" v="Disabled" />
+        <boolgroup name="Receiver pin" v="Enabled">
+          <Pin v="TSI0_CH9/PTB16/UART0_RX/EWM_IN" />
+        </boolgroup>
+        <boolgroup name="Transmitter pin" v="Enabled">
+          <Pin v="TSI0_CH10/PTB17/UART0_TX/EWM_OUT_b" />
+          <boolgroup name="Transmitter modulation" v="Disabled" />
+        </boolgroup>
         <boolgroup name="CTS pin" v="Disabled" />
         <boolgroup name="RTS pin" v="Disabled" />
       </group>
@@ -514,8 +519,8 @@ PE_DEBUGHALT();
       </group>
       <group name="Initialization">
         <Send_break v="Disabled" />
-        <Enable_transmitter v="Disabled" />
-        <Enable_receiver v="Disabled" />
+        <Enable_transmitter v="Enabled" />
+        <Enable_receiver v="Enabled" />
         <Call_Init_method v="yes" />
       </group>
     </Properties>
@@ -702,70 +707,6 @@ PE_DEBUGHALT();
     </Properties>
     <Methods>
       <Init v="generate code" />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="TX1" type="BitIO_LDD">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="TX1" />
-      <Pin_for_I_O v="TSI0_CH10/PTB17/UART0_TX/EWM_OUT_b" />
-      <Direction v="Input/Output" />
-      <group name="Initialization">
-        <Init__direction v="Output" />
-        <Init__value v="0" />
-        <Auto_initialization v="yes" />
-      </group>
-      <Safe_mode v="no" />
-    </Properties>
-    <Methods>
-      <Init v="generate code" />
-      <Deinit v="don&amp;apos;t generate code" />
-      <GetDir v="don&amp;apos;t generate code" />
-      <SetDir v="generate code" />
-      <SetInput v="generate code" />
-      <SetOutput v="don&amp;apos;t generate code" />
-      <GetVal v="generate code" />
-      <PutVal v="generate code" />
-      <ClrVal v="generate code" />
-      <SetVal v="generate code" />
-      <NegVal v="don&amp;apos;t generate code" />
-      <ConnectPin v="don&amp;apos;t generate code" />
-      <GetRawVal v="don&amp;apos;t generate code" />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="RX1" type="BitIO_LDD">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="RX1" />
-      <Pin_for_I_O v="TSI0_CH9/PTB16/UART0_RX/EWM_IN" />
-      <Direction v="Input/Output" />
-      <group name="Initialization">
-        <Init__direction v="Output" />
-        <Init__value v="0" />
-        <Auto_initialization v="yes" />
-      </group>
-      <Safe_mode v="no" />
-    </Properties>
-    <Methods>
-      <Init v="generate code" />
-      <Deinit v="don&amp;apos;t generate code" />
-      <GetDir v="don&amp;apos;t generate code" />
-      <SetDir v="generate code" />
-      <SetInput v="generate code" />
-      <SetOutput v="don&amp;apos;t generate code" />
-      <GetVal v="generate code" />
-      <PutVal v="generate code" />
-      <ClrVal v="generate code" />
-      <SetVal v="generate code" />
-      <NegVal v="don&amp;apos;t generate code" />
-      <ConnectPin v="don&amp;apos;t generate code" />
-      <GetRawVal v="don&amp;apos;t generate code" />
     </Methods>
     <Events>
       <EmptySection_DummyValue />

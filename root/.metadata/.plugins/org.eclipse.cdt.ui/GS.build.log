@@ -1,40 +1,62 @@
-16:08:31 **** Build of configuration Debug for project GS ****
+18:48:08 **** Incremental Build of configuration Release config for project GS ****
 make all 
 Building file: ../Sources/Events.c
 Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=c99 -MMD -MP -MF"Sources/Events.d" -MT"Sources/Events.o" -c -o "Sources/Events.o" "../Sources/Events.c"
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O2  -g -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/include" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/config" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/kernel" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/core/M4" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/compiler/cwgcc" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=gnu11 -MMD -MP -MF"Sources/Events.d" -MT"Sources/Events.o" -c -o "Sources/Events.o" "../Sources/Events.c"
 Finished building: ../Sources/Events.c
  
 Building file: ../Sources/main.c
 Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O2  -g -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/include" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/config" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/kernel" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/core/M4" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/compiler/cwgcc" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=gnu11 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
 Finished building: ../Sources/main.c
+ 
+Building file: ../Sources/mqx_tasks.c
+Invoking: Cross ARM C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O2  -g -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/include" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/config" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/kernel" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/core/M4" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/compiler/cwgcc" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=gnu11 -MMD -MP -MF"Sources/mqx_tasks.d" -MT"Sources/mqx_tasks.o" -c -o "Sources/mqx_tasks.o" "../Sources/mqx_tasks.c"
+Finished building: ../Sources/mqx_tasks.c
  
 Building file: ../Project_Settings/Startup_Code/startup.c
 Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=c99 -MMD -MP -MF"Project_Settings/Startup_Code/startup.d" -MT"Project_Settings/Startup_Code/startup.o" -c -o "Project_Settings/Startup_Code/startup.o" "../Project_Settings/Startup_Code/startup.c"
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O2  -g -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/include" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/config" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/kernel" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/core/M4" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/compiler/cwgcc" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=gnu11 -MMD -MP -MF"Project_Settings/Startup_Code/startup.d" -MT"Project_Settings/Startup_Code/startup.o" -c -o "Project_Settings/Startup_Code/startup.o" "../Project_Settings/Startup_Code/startup.c"
 Finished building: ../Project_Settings/Startup_Code/startup.c
  
-Building file: ../Generated_Code/Cpu.c
-Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=c99 -MMD -MP -MF"Generated_Code/Cpu.d" -MT"Generated_Code/Cpu.o" -c -o "Generated_Code/Cpu.o" "../Generated_Code/Cpu.c"
-Finished building: ../Generated_Code/Cpu.c
- 
-Building file: ../Generated_Code/PE_LDD.c
-Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=c99 -MMD -MP -MF"Generated_Code/PE_LDD.d" -MT"Generated_Code/PE_LDD.o" -c -o "Generated_Code/PE_LDD.o" "../Generated_Code/PE_LDD.c"
-Finished building: ../Generated_Code/PE_LDD.c
- 
-Building file: ../Generated_Code/Vectors.c
-Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=c99 -MMD -MP -MF"Generated_Code/Vectors.d" -MT"Generated_Code/Vectors.o" -c -o "Generated_Code/Vectors.o" "../Generated_Code/Vectors.c"
-Finished building: ../Generated_Code/Vectors.c
- 
-Building target: GS.elf
-Invoking: Cross ARM C++ Linker
-arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/Users/francisconroy/Documents/repos/FYP-software/root/GS/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Project_Settings/Linker_Files" -Wl,-Map,"GS.map" -specs=nano.specs -specs=nosys.specs -o "GS.elf"  ./Sources/Events.o ./Sources/main.o  ./Project_Settings/Startup_Code/startup.o  ./Generated_Code/Cpu.o ./Generated_Code/PE_LDD.o ./Generated_Code/Vectors.o   
-Finished building target: GS.elf
- 
+Building file: ../MQXLITE/psp/cortex_m/core/M4/boot.S
+Invoking: Cross ARM GNU Assembler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O2  -g -x assembler -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/include" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/config" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/kernel" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/core/M4" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/compiler/cwgcc" -MMD -MP -MF"MQXLITE/psp/cortex_m/core/M4/boot.d" -MT"MQXLITE/psp/cortex_m/core/M4/boot.o" -c -o "MQXLITE/psp/cortex_m/core/M4/boot.o" "../MQXLITE/psp/cortex_m/core/M4/boot.S"
+../MQXLITE/psp/cortex_m/core/M4/boot.S: Assembler messages:
+../MQXLITE/psp/cortex_m/core/M4/boot.S:47: Error: bad instruction `asm_comp_specific_directives '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:49: Error: unexpected character `t' in type specifier
+../MQXLITE/psp/cortex_m/core/M4/boot.S:49: Error: bad instruction `asm_code_section(.text) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:51: Error: bad instruction `set_function_alignment '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:53: Error: bad instruction `asm_public(__boot) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:54: Error: bad instruction `asm_public(__set_MSP) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:64: Error: bad instruction `asm_equate(NVIC_ICER, 0xE000E180)'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:65: Error: bad instruction `asm_equate(NVIC_ICPR, 0xE000E280)'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:68: Error: bad instruction `asm_public_begin(__boot) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:69: Error: bad instruction `asm_public_func(__boot) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:70: Error: bad instruction `asm_label(__boot) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:85: Error: bad instruction `asm_label(_boot_loop) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:87: Error: Thumb does not support this addressing mode -- `str r2,[r0],#4'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:88: Error: Thumb does not support this addressing mode -- `str r2,[r1],#4'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:91: Error: bad instruction `asm_label(_boot_loop_end) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:99: Error: unshifted register required -- `orr r0,r0,#2'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:105: Error: unexpected character `w' in type specifier
+../MQXLITE/psp/cortex_m/core/M4/boot.S:105: Error: bad instruction `ldr.w R0,=0xE000ED88'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:109: Error: unshifted register required -- `orr R1,R1,#(0xF<<20)'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:121: Error: bad instruction `asm_extern(__thumb_startup) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:122: Error: unrecognized relocation suffix -- `bl ASM_PREFIX(__thumb_startup)'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:124: Error: bad instruction `asm_extern(__iar_program_start) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:125: Error: unrecognized relocation suffix -- `bl ASM_PREFIX(__iar_program_start)'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:127: Error: bad instruction `asm_extern(__thumb_startup) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:128: Error: unrecognized relocation suffix -- `bl ASM_PREFIX(__thumb_startup)'
+../MQXLITE/psp/cortex_m/core/M4/boot.S:130: Error: bad instruction `asm_public_end(__boot) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:133: Error: bad instruction `asm_public_begin(__set_MSP) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:134: Error: bad instruction `asm_public_func(__set_MSP) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:135: Error: bad instruction `asm_label(__set_MSP) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:138: Error: bad instruction `asm_public_end(__set_MSP) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:140: Error: bad instruction `asm_align(4) '
+../MQXLITE/psp/cortex_m/core/M4/boot.S:141: Error: bad instruction `asm_end '
+make: *** [MQXLITE/psp/cortex_m/core/M4/boot.o] Error 1
 
-16:08:32 Build Finished (took 888ms)
+18:48:09 Build Finished (took 1s.466ms)
 
