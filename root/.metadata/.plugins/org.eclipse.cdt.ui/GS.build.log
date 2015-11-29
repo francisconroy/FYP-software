@@ -1,4 +1,4 @@
-18:48:08 **** Incremental Build of configuration Release config for project GS ****
+17:02:31 **** Incremental Build of configuration Release config for project GS ****
 make all 
 Building file: ../Sources/Events.c
 Invoking: Cross ARM C Compiler
@@ -14,11 +14,6 @@ Building file: ../Sources/mqx_tasks.c
 Invoking: Cross ARM C Compiler
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O2  -g -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/include" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/config" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/kernel" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/core/M4" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/compiler/cwgcc" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=gnu11 -MMD -MP -MF"Sources/mqx_tasks.d" -MT"Sources/mqx_tasks.o" -c -o "Sources/mqx_tasks.o" "../Sources/mqx_tasks.c"
 Finished building: ../Sources/mqx_tasks.c
- 
-Building file: ../Project_Settings/Startup_Code/startup.c
-Invoking: Cross ARM C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O2  -g -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/include" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/config" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/kernel" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/core/M4" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/MQXLITE/psp/cortex_m/compiler/cwgcc" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code" -std=gnu11 -MMD -MP -MF"Project_Settings/Startup_Code/startup.d" -MT"Project_Settings/Startup_Code/startup.o" -c -o "Project_Settings/Startup_Code/startup.o" "../Project_Settings/Startup_Code/startup.c"
-Finished building: ../Project_Settings/Startup_Code/startup.c
  
 Building file: ../MQXLITE/psp/cortex_m/core/M4/boot.S
 Invoking: Cross ARM GNU Assembler
@@ -58,5 +53,5 @@ arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O2  -g -x assembler -I"/Users/francis
 ../MQXLITE/psp/cortex_m/core/M4/boot.S:141: Error: bad instruction `asm_end '
 make: *** [MQXLITE/psp/cortex_m/core/M4/boot.o] Error 1
 
-18:48:09 Build Finished (took 1s.466ms)
+17:02:31 Build Finished (took 269ms)
 

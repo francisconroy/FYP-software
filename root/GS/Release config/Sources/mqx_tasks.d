@@ -10,32 +10,13 @@ Sources/mqx_tasks.o: ../Sources/mqx_tasks.c \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/PE_Error.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/PE_Const.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/IO_Map.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/PTA.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/Cpu.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/ADC0.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/UART0.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FC1.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FreeCntrLdd1.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TU1.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/FTM_PDD.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/PDD_Types.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FreeCntrLdd1.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TU1.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/VREF.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FLTSD1.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/GPIO_PDD.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/HIN1.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/LIN1.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FLTCLR1.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/CLUTCH_SW.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FLTSD2.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/HIN2.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/LIN2.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FLTCLR2.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/GPIO_PDD.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/PDD_Types.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/Cpu.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/SH_UP.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/SH_DN.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/LED.h \
- /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/MOTEC_GEAR_SIG.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/SHIFT_LEV_ANGLE.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TEMP1.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/NEUT_SW.h \
@@ -47,6 +28,15 @@ Sources/mqx_tasks.o: ../Sources/mqx_tasks.c \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/AD1.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/ADC_PDD.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/AS1.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/INA2.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/INB2.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/INA1.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/INB1.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/PWM2.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TU1.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/FTM_PDD.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TU1.h \
+ /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/PWM1.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/MQX1.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/SystemTimer1.h \
  /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/SysTick_PDD.h \
@@ -91,57 +81,19 @@ Sources/mqx_tasks.o: ../Sources/mqx_tasks.c \
 
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/IO_Map.h:
 
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/PTA.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/Cpu.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/ADC0.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/UART0.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FC1.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FreeCntrLdd1.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TU1.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/FTM_PDD.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/PDD_Types.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FreeCntrLdd1.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TU1.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/VREF.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FLTSD1.h:
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/CLUTCH_SW.h:
 
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/GPIO_PDD.h:
 
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/HIN1.h:
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/PDD_Types.h:
 
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/LIN1.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FLTCLR1.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/CLUTCH_SW.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FLTSD2.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/HIN2.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/LIN2.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/FLTCLR2.h:
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/Cpu.h:
 
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/SH_UP.h:
 
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/SH_DN.h:
 
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/LED.h:
-
-/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/MOTEC_GEAR_SIG.h:
 
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/SHIFT_LEV_ANGLE.h:
 
@@ -164,6 +116,24 @@ Sources/mqx_tasks.o: ../Sources/mqx_tasks.c \
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/ADC_PDD.h:
 
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/AS1.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/INA2.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/INB2.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/INA1.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/INB1.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/PWM2.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TU1.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Static_Code/PDD/FTM_PDD.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/TU1.h:
+
+/Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/PWM1.h:
 
 /Users/francisconroy/Documents/repos/FYP-software/root/GS/Generated_Code/MQX1.h:
 

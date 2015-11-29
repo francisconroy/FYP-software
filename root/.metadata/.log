@@ -1472,3 +1472,137 @@ org.osgi.service.prefs.BackingStoreException: Exception loading preferences from
 	at org.eclipse.egit.ui.Activator$ResourceRefreshJob.runInWorkspace(Activator.java:357)
 	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2015-11-29 12:59:46.915 -----------------------------------------------
+eclipse.buildId=3.0.0.
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.somniumtech.branding.kds.ide
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumtech.branding.kds.ide
+
+!ENTRY org.eclipse.core.net 1 0 2015-11-29 12:59:50.722
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-29 12:59:55.622
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.253
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.257
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.260
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.267
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.276
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.279
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.301
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.307
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:00:07.313
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+!SESSION 2015-11-29 13:03:15.729 -----------------------------------------------
+eclipse.buildId=3.0.0.
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.somniumtech.branding.kds.ide
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumtech.branding.kds.ide
+
+!ENTRY org.eclipse.core.net 1 0 2015-11-29 13:03:18.792
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-29 13:03:20.807
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.076
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.089
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.093
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.105
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.113
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.117
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.139
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.159
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 13:05:21.166
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)
+
+!ENTRY com.somniumtech.common 0 0 2015-11-29 16:41:56.157
+!MESSAGE 20151129T1641 KDS Upgrade Assistant Conversion Report
+Project name: GS
+Project location: /Users/francisconroy/Documents/repos/FYP-software/root/GS
+Conversion status: success.
+Toolchain settings, for configuration Debug: already set. Not changed.
+Newlib-nano, for configuration Debug: no instances of -nanolibc found.
+Semihosting support None, for configuration Debug: semihosting options successfully removed.
+Toolchain settings, for configuration Release config: already set. Not changed.
+Newlib-nano, for configuration Release config: no instances of -nanolibc found.
+Add _exit(): /Sources/exit.c, was added.
+A backup of the original .cproject file has been created in .cproject_backup
+
+!SESSION 2015-11-29 16:49:29.554 -----------------------------------------------
+eclipse.buildId=3.0.0.
+java.version=1.7.0_76
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.somniumtech.branding.kds.ide
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.somniumtech.branding.kds.ide
+
+!ENTRY org.eclipse.core.net 1 0 2015-11-29 16:49:32.715
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.processorexpert.core.ide.wizard.ui 2 0 2015-11-29 16:49:36.506
+!MESSAGE External elements location /Applications/KDS_3.0.0.app/Contents/eclipse/ProcessorExpert/BoardConfigurations/wizard_data does not exist
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.150
+!MESSAGE Interface name must be specified with backslashes (BitIO/BitIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.154
+!MESSAGE Interface name must be specified with backslashes (ConsoleIO/ConsoleIO_Serial_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.157
+!MESSAGE Interface name must be specified with backslashes (Term/TerminalInterface)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.164
+!MESSAGE Interface name must be specified with backslashes (ByteIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.177
+!MESSAGE Interface name must be specified with backslashes (ExtInt/ExtInt_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.179
+!MESSAGE Interface name must be specified with backslashes (FreeMaster/AllInterfaces)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.205
+!MESSAGE Interface name must be specified with backslashes (FreescaleAnalogComp/AnalogComp_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.209
+!MESSAGE Interface name must be specified with backslashes (BitsIO/BitsIO_LDD)
+
+!ENTRY com.freescale.processorexpert.core 2 0 2015-11-29 16:49:39.214
+!MESSAGE Interface name must be specified with backslashes (ADC/ADC_LDD)

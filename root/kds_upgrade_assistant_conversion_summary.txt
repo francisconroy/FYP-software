@@ -1,0 +1,13 @@
+20151129T1641 KDS Upgrade Assistant Conversion Report
+  Project name: GS
+  Project location: /Users/francisconroy/Documents/repos/FYP-software/root/GS
+  Conversion status: success.
+  Toolchain settings, for configuration Debug: already set. Not changed.
+  Newlib-nano, for configuration Debug: no instances of -nanolibc found.
+  Semihosting support None, for configuration Debug: semihosting options successfully removed.
+  Toolchain settings, for configuration Release config: already set. Not changed.
+  Newlib-nano, for configuration Release config: no instances of -nanolibc found.
+  Add _exit(): /Sources/exit.c, was added.
+  A backup of the original .cproject file has been created in .cproject_backup
+  
+  

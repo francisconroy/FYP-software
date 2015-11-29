@@ -10,6 +10,10 @@ RM := rm -rf
 -include sources.mk
 -include Sources/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
+-include MQXLITE/psp/cortex_m/core/M4/subdir.mk
+-include MQXLITE/psp/cortex_m/subdir.mk
+-include MQXLITE/kernel/subdir.mk
+-include MQXLITE/config/subdir.mk
 -include Generated_Code/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -44,6 +48,12 @@ endif
 -include ../makefile.defs
 
 # Add inputs and outputs from these tool invocations to the build variables 
+SECONDARY_FLASH += \
+GS.hex \
+
+SECONDARY_SIZE += \
+GS.siz \
+
 
 # All Target
 all: GS.elf secondary-outputs
@@ -52,16 +62,28 @@ all: GS.elf secondary-outputs
 GS.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/Users/francisconroy/Documents/repos/FYP-software/root/GS/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Project_Settings/Linker_Files" -Wl,-Map,"GS.map" -specs=nano.specs -specs=nosys.specs -o "GS.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/Users/francisconroy/Documents/repos/FYP-software/root/GS/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/Users/francisconroy/Documents/repos/FYP-software/root/GS/Project_Settings/Linker_Files" -Wl,-Map,"GS.map" --specs=nano.specs -o "GS.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
+	@echo ' '
+
+GS.hex: GS.elf
+	@echo 'Invoking: Cross ARM GNU Create Flash Image'
+	arm-none-eabi-objcopy -O ihex "GS.elf"  "GS.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+GS.siz: GS.elf
+	@echo 'Invoking: Cross ARM GNU Print Size'
+	arm-none-eabi-size --format=berkeley "GS.elf"
+	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C++_DEPS)$(OBJS)$(C_DEPS)$(ASM_DEPS)$(CC_DEPS)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS)$(S_UPPER_DEPS) GS.elf
+	-$(RM) $(SECONDARY_SIZE)$(C++_DEPS)$(OBJS)$(C_DEPS)$(ASM_DEPS)$(CC_DEPS)$(SECONDARY_FLASH)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS)$(S_UPPER_DEPS) GS.elf
 	-@echo ' '
 
-secondary-outputs:
+secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
 
 .PHONY: all clean dependents
 .SECONDARY:

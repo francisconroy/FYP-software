@@ -27,16 +27,7 @@
 <br/>
 
 \page page_components Components 
-- \subpage TU1
-- \subpage FLTSD1
-- \subpage HIN1
-- \subpage LIN1
-- \subpage FLTCLR1
 - \subpage CLUTCH_SW
-- \subpage FLTSD2
-- \subpage HIN2
-- \subpage LIN2
-- \subpage FLTCLR2
 - \subpage SH_UP
 - \subpage SH_DN
 - \subpage LED
@@ -50,6 +41,13 @@
 - \subpage MODE_ENG
 - \subpage AD1
 - \subpage AS1
+- \subpage INA2
+- \subpage INB2
+- \subpage INA1
+- \subpage INB1
+- \subpage TU1
+- \subpage PWM2
+- \subpage PWM1
 - \subpage SystemTimer1
 
 */
