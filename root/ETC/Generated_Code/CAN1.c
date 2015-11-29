@@ -7,7 +7,7 @@
 **     Version     : Component 01.112, Driver 01.07, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-15, 12:53, # CodeGen: 1
+**     Date/Time   : 2015-11-29, 18:46, # CodeGen: 2
 **     Abstract    :
 **         This component "CAN_LDD" implements a CAN serial channel.
 **     Settings    :
@@ -137,27 +137,17 @@
 
 /* MODULE CAN1. */
 
-/* {Default RTOS Adapter} No RTOS includes */
+/* MQX Lite include files */
+#include "mqxlite.h"
+#include "mqxlite_prv.h"
 #include "CAN1.h"
 #include "IO_Map.h"
 #include "Events.h"
 #include "CAN_PDD.h"
 #include "PORT_PDD.h"
 
-/* {Default RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
+/* {MQXLite RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static CAN1_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
-/* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
-static CAN1_TDeviceDataPtr INT_CAN0_Error__DEFAULT_RTOS_ISRPARAM;
-/* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
-static CAN1_TDeviceDataPtr INT_CAN0_Bus_Off__DEFAULT_RTOS_ISRPARAM;
-/* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
-static CAN1_TDeviceDataPtr INT_CAN0_ORed_Message_buffer__DEFAULT_RTOS_ISRPARAM;
-/* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
-static CAN1_TDeviceDataPtr INT_CAN0_Tx_Warning__DEFAULT_RTOS_ISRPARAM;
-/* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
-static CAN1_TDeviceDataPtr INT_CAN0_Rx_Warning__DEFAULT_RTOS_ISRPARAM;
-/* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
-static CAN1_TDeviceDataPtr INT_CAN0_Wake_Up__DEFAULT_RTOS_ISRPARAM;
 
 #define AVAILABLE_EVENTS_MASK (LDD_CAN_ON_FULL_RXBUFFER | LDD_CAN_ON_FREE_TXBUFFER)
 #define CAN1_CAN_MBUFFERS 0x02U        /* Number of message buffers */
@@ -190,7 +180,7 @@ LDD_TDeviceData* CAN1_Init(LDD_TUserData *UserDataPtr)
 {
   /* Allocate LDD device structure */
   CAN1_TDeviceDataPtr DeviceDataPrv;
-  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  /* {MQXLite RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
 
   DeviceDataPrv->BaseAddr = CAN0_BASE_PTR; /* Device base address*/
@@ -204,20 +194,32 @@ LDD_TDeviceData* CAN1_Init(LDD_TUserData *UserDataPtr)
   /* SIM_SCGC6: FLEXCAN0=1 */
   SIM_SCGC6 |= SIM_SCGC6_FLEXCAN0_MASK;
   /* Allocate interrupt vectors */
-  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_CAN0_Error__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
-  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_CAN0_Bus_Off__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
-  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_CAN0_ORed_Message_buffer__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
-  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_CAN0_Tx_Warning__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
-  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_CAN0_Rx_Warning__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
-  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_CAN0_Wake_Up__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
+  /* {MQXLite RTOS Adapter} Save old and set new interrupt vector (function handler and ISR parameter) */
+  /* Note: Exception handler for interrupt is not saved, because it is not modified */
+  DeviceDataPrv->SavedErrorISRSettings.isrData = _int_get_isr_data(LDD_ivIndex_INT_CAN0_Error);
+  DeviceDataPrv->SavedErrorISRSettings.isrFunction = _int_install_isr(LDD_ivIndex_INT_CAN0_Error, CAN1_InterruptError, DeviceDataPrv);
+  /* {MQXLite RTOS Adapter} Save old and set new interrupt vector (function handler and ISR parameter) */
+  /* Note: Exception handler for interrupt is not saved, because it is not modified */
+  DeviceDataPrv->SavedBusOffISRSettings.isrData = _int_get_isr_data(LDD_ivIndex_INT_CAN0_Bus_Off);
+  DeviceDataPrv->SavedBusOffISRSettings.isrFunction = _int_install_isr(LDD_ivIndex_INT_CAN0_Bus_Off, CAN1_InterruptBusOff, DeviceDataPrv);
+  /* {MQXLite RTOS Adapter} Save old and set new interrupt vector (function handler and ISR parameter) */
+  /* Note: Exception handler for interrupt is not saved, because it is not modified */
+  DeviceDataPrv->SavedMessageBufferISRSettings.isrData = _int_get_isr_data(LDD_ivIndex_INT_CAN0_ORed_Message_buffer);
+  DeviceDataPrv->SavedMessageBufferISRSettings.isrFunction = _int_install_isr(LDD_ivIndex_INT_CAN0_ORed_Message_buffer, CAN1_InterruptRxTx, DeviceDataPrv);
+  /* {MQXLite RTOS Adapter} Save old and set new interrupt vector (function handler and ISR parameter) */
+  /* Note: Exception handler for interrupt is not saved, because it is not modified */
+  DeviceDataPrv->SavedMessageBufferISRSettings.isrData = _int_get_isr_data(LDD_ivIndex_INT_CAN0_Tx_Warning);
+  DeviceDataPrv->SavedMessageBufferISRSettings.isrFunction = _int_install_isr(LDD_ivIndex_INT_CAN0_Tx_Warning, CAN1_InterruptTxWarn, DeviceDataPrv);
+  /* {MQXLite RTOS Adapter} Save old and set new interrupt vector (function handler and ISR parameter) */
+  /* Note: Exception handler for interrupt is not saved, because it is not modified */
+  DeviceDataPrv->SavedMessageBufferISRSettings.isrData = _int_get_isr_data(LDD_ivIndex_INT_CAN0_Rx_Warning);
+  DeviceDataPrv->SavedMessageBufferISRSettings.isrFunction = _int_install_isr(LDD_ivIndex_INT_CAN0_Rx_Warning, CAN1_InterruptRxWarn, DeviceDataPrv);
+  /* {MQXLite RTOS Adapter} Save old and set new interrupt vector (function handler and ISR parameter) */
+  /* Note: Exception handler for interrupt is not saved, because it is not modified */
+  DeviceDataPrv->SavedMessageBufferISRSettings.isrData = _int_get_isr_data(LDD_ivIndex_INT_CAN0_Wake_Up);
+  DeviceDataPrv->SavedMessageBufferISRSettings.isrFunction = _int_install_isr(LDD_ivIndex_INT_CAN0_Wake_Up, CAN1_InterruptWakeUp, DeviceDataPrv);
 
-  /* initialization of CAN RX pinï¿½*/
+  /* initialization of CAN RX pin¨*/
   /* PORTA_PCR13: ISF=0,MUX=2 */
   PORTA_PCR13 = (uint32_t)((PORTA_PCR13 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK |
@@ -435,11 +437,11 @@ LDD_TError CAN1_SendFrame(LDD_TDeviceData *DeviceDataPtr, LDD_CAN_TMBIndex Buffe
   if (Frame->FrameType > LDD_CAN_RESPONSE_FRAME) { /* Is FrameType other than LDD_CAN_DATA_FRAME_STD, LDD_CAN_DATA_FRAME_EXT or LDD_CAN_REMOTE_FRAME? */
     return ERR_PARAM_ATTRIBUTE_SET;    /* If yes then error */
   }
-  /* {Default RTOS Adapter} Critical section begin, general PE function is used */
-  EnterCritical();
+  /* {MQXLite RTOS Adapter} Critical section begin (RTOS function call is defined by MQXLite RTOS Adapter property) */
+  _int_disable();
   if (CAN_PDD_GetMessageBufferCode(CAN0_BASE_PTR, BufferIdx) != CAN_PDD_MB_TX_NOT_ACTIVE) { /* Is Tx buffer inactive */
-    /* {Default RTOS Adapter} Critical section end, general PE function is used */
-    ExitCritical();
+    /* {MQXLite RTOS Adapter} Critical section ends (RTOS function call is defined by MQXLite RTOS Adapter property) */
+    _int_enable();
     return ERR_BUSY;                   /* If no then error */
   }         
   if ((Frame->MessageID & LDD_CAN_MESSAGE_ID_EXT) != 0x00U) { /* Is the frame configured as Extended ID? */
@@ -472,8 +474,8 @@ LDD_TError CAN1_SendFrame(LDD_TDeviceData *DeviceDataPtr, LDD_CAN_TMBIndex Buffe
     }
   }
   CAN_PDD_SetMessageBufferCode(CAN0_BASE_PTR, BufferIdx, TxMBCode); /* Set code for Tx buffer of the message */
-  /* {Default RTOS Adapter} Critical section end, general PE function is used */
-  ExitCritical();
+  /* {MQXLite RTOS Adapter} Critical section ends (RTOS function call is defined by MQXLite RTOS Adapter property) */
+  _int_enable();
   return ERR_OK;
 }
 
@@ -531,8 +533,8 @@ LDD_TError CAN1_ReadFrame(LDD_TDeviceData *DeviceDataPtr, LDD_CAN_TMBIndex Buffe
     (void)CAN_PDD_GetTimerValue(CAN0_BASE_PTR); /* Dummy read of Free running timer register release buffer lock */
     return ERR_RXEMPTY;                /* If yes then error */
   }
-  /* {Default RTOS Adapter} Critical section begin, general PE function is used */
-  EnterCritical();
+  /* {MQXLite RTOS Adapter} Critical section begin (RTOS function call is defined by MQXLite RTOS Adapter property) */
+  _int_disable();
   CAN_PDD_SetMessageBufferCode(CAN0_BASE_PTR, BufferIdx, CAN_PDD_MB_RX_NOT_ACTIVE); /* Hold inactive Rx buffer */
   if (CAN_PDD_GetMessageBufferIDExt(CAN0_BASE_PTR, BufferIdx) == PDD_ENABLE) { /* Extended ID? */
     Frame->MessageID = (LDD_CAN_TMessageID)(CAN_PDD_GetMessageBufferID(CAN0_BASE_PTR, BufferIdx, CAN_PDD_BUFFER_ID_EXT) | (uint32_t)LDD_CAN_MESSAGE_ID_EXT);
@@ -553,8 +555,8 @@ LDD_TError CAN1_ReadFrame(LDD_TDeviceData *DeviceDataPtr, LDD_CAN_TMBIndex Buffe
   }
   CAN_PDD_SetMessageBufferCode(CAN0_BASE_PTR, BufferIdx, CAN_PDD_MB_RX_EMPTY); /* Set the message buffer code*/
   (void)CAN_PDD_GetTimerValue(CAN0_BASE_PTR); /* Dummy read of Free running timer register release buffer lock */
-  /* {Default RTOS Adapter} Critical section end, general PE function is used */
-  ExitCritical();
+  /* {MQXLite RTOS Adapter} Critical section ends (RTOS function call is defined by MQXLite RTOS Adapter property) */
+  _int_enable();
   if (RxMBCode == CAN_PDD_MB_RX_OVERRUN) { /* Is the overrun flag set? */
     return ERR_OVERRUN;                /* Return error */
   }
@@ -571,10 +573,10 @@ LDD_TError CAN1_ReadFrame(LDD_TDeviceData *DeviceDataPtr, LDD_CAN_TMBIndex Buffe
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-PE_ISR(CAN1_InterruptError)
+void CAN1_InterruptError(LDD_RTOS_TISRParameter _isrParameter)
 {
-  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
-  CAN1_TDeviceDataPtr DeviceDataPrv = INT_CAN0_Error__DEFAULT_RTOS_ISRPARAM;
+  /* {MQXLite RTOS Adapter} ISR parameter is passed as parameter from RTOS interrupt dispatcher */
+  CAN1_TDeviceDataPtr DeviceDataPrv = (CAN1_TDeviceDataPtr)_isrParameter;
   uint32_t ErrorFlags;
 
   (void)DeviceDataPrv;                 /* Parameter is not used, suppress unused argument warning */
@@ -591,10 +593,10 @@ PE_ISR(CAN1_InterruptError)
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-PE_ISR(CAN1_InterruptBusOff)
+void CAN1_InterruptBusOff(LDD_RTOS_TISRParameter _isrParameter)
 {
-  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
-  CAN1_TDeviceDataPtr DeviceDataPrv = INT_CAN0_Bus_Off__DEFAULT_RTOS_ISRPARAM;
+  /* {MQXLite RTOS Adapter} ISR parameter is passed as parameter from RTOS interrupt dispatcher */
+  CAN1_TDeviceDataPtr DeviceDataPrv = (CAN1_TDeviceDataPtr)_isrParameter;
   (void)DeviceDataPrv;                 /* Parameter is not used, suppress unused argument warning */
   CAN_PDD_ClearStatusInterruptFlags1(CAN0_BASE_PTR, CAN_PDD_BUS_OFF_INT); /* Clear interrupt pending flag */
 }
@@ -608,10 +610,10 @@ PE_ISR(CAN1_InterruptBusOff)
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-PE_ISR(CAN1_InterruptRxTx)
+void CAN1_InterruptRxTx(LDD_RTOS_TISRParameter _isrParameter)
 {
-  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
-  CAN1_TDeviceDataPtr DeviceDataPrv = INT_CAN0_ORed_Message_buffer__DEFAULT_RTOS_ISRPARAM;
+  /* {MQXLite RTOS Adapter} ISR parameter is passed as parameter from RTOS interrupt dispatcher */
+  CAN1_TDeviceDataPtr DeviceDataPrv = (CAN1_TDeviceDataPtr)_isrParameter;
   LDD_CAN_TBufferMask TxBufferMask;
   LDD_CAN_TBufferMask RxBufferMask;
   LDD_CAN_TBufferMask BufferMask;
@@ -649,10 +651,10 @@ PE_ISR(CAN1_InterruptRxTx)
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-PE_ISR(CAN1_InterruptTxWarn)
+void CAN1_InterruptTxWarn(LDD_RTOS_TISRParameter _isrParameter)
 {
-  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
-  CAN1_TDeviceDataPtr DeviceDataPrv = INT_CAN0_Tx_Warning__DEFAULT_RTOS_ISRPARAM;
+  /* {MQXLite RTOS Adapter} ISR parameter is passed as parameter from RTOS interrupt dispatcher */
+  CAN1_TDeviceDataPtr DeviceDataPrv = (CAN1_TDeviceDataPtr)_isrParameter;
   (void)DeviceDataPrv;                 /* Parameter is not used, suppress unused argument warning */
 
   CAN_PDD_ClearStatusInterruptFlags1(CAN0_BASE_PTR, CAN_PDD_TX_WARNING_INT); /* Clear interrupt pending flag */
@@ -667,10 +669,10 @@ PE_ISR(CAN1_InterruptTxWarn)
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-PE_ISR(CAN1_InterruptRxWarn)
+void CAN1_InterruptRxWarn(LDD_RTOS_TISRParameter _isrParameter)
 {
-  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
-  CAN1_TDeviceDataPtr DeviceDataPrv = INT_CAN0_Rx_Warning__DEFAULT_RTOS_ISRPARAM;
+  /* {MQXLite RTOS Adapter} ISR parameter is passed as parameter from RTOS interrupt dispatcher */
+  CAN1_TDeviceDataPtr DeviceDataPrv = (CAN1_TDeviceDataPtr)_isrParameter;
   (void)DeviceDataPrv;                 /* Parameter is not used, suppress unused argument warning */
 
   CAN_PDD_ClearStatusInterruptFlags1(CAN0_BASE_PTR, CAN_PDD_RX_WARNING_INT); /* Clear interrupt pending flag */
@@ -685,10 +687,10 @@ PE_ISR(CAN1_InterruptRxWarn)
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-PE_ISR(CAN1_InterruptWakeUp)
+void CAN1_InterruptWakeUp(LDD_RTOS_TISRParameter _isrParameter)
 {
-  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
-  CAN1_TDeviceDataPtr DeviceDataPrv = INT_CAN0_Wake_Up__DEFAULT_RTOS_ISRPARAM;
+  /* {MQXLite RTOS Adapter} ISR parameter is passed as parameter from RTOS interrupt dispatcher */
+  CAN1_TDeviceDataPtr DeviceDataPrv = (CAN1_TDeviceDataPtr)_isrParameter;
   (void)DeviceDataPrv;                 /* Parameter is not used, suppress unused argument warning */
 
   CAN_PDD_ClearStatusInterruptFlags1(CAN0_BASE_PTR, CAN_PDD_WAKEUP_INT); /* Clear interrupt pending flag */

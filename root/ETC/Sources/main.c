@@ -29,18 +29,22 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "mqx_tasks.h"
 #include "CAN1.h"
 #include "PWM1.h"
 #include "TU1.h"
 #include "Bit1.h"
 #include "CI2C1.h"
 #include "AS1.h"
+#include "MQX1.h"
+#include "SystemTimer1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
 /* User includes (#include below this line is not maintained by Processor Expert) */
+#include "MPI.h"
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
@@ -54,7 +58,7 @@ int main(void)
 
   /* Write your code here */
   /* For example: for(;;) { } */
-
+  initialiseMPI("ETC");
 
 
 

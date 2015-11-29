@@ -10,10 +10,6 @@ RM := rm -rf
 -include sources.mk
 -include Sources/subdir.mk
 -include Project_Settings/Startup_Code/subdir.mk
--include MQXLITE/psp/cortex_m/core/M4/subdir.mk
--include MQXLITE/psp/cortex_m/subdir.mk
--include MQXLITE/kernel/subdir.mk
--include MQXLITE/config/subdir.mk
 -include Generated_Code/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -56,7 +52,7 @@ all: ETC.elf secondary-outputs
 ETC.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "/Users/francisconroy/Documents/repos/FYP-software/root/ETC/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/Project_Settings/Linker_Files" -Wl,-Map,"ETC.map" -specs=nano.specs -specs=nosys.specs -o "ETC.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "D:/Users/Josh/Documents/GitHub/FYP-software/root/ETC/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"D:/Users/Josh/Documents/GitHub/FYP-software/root/ETC/Project_Settings/Linker_Files" -Wl,-Map,"ETC.map" -specs=nano.specs -specs=nosys.specs -o "ETC.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -39,6 +39,8 @@
 #include "Bit1.h"
 #include "CI2C1.h"
 #include "AS1.h"
+#include "MQX1.h"
+#include "SystemTimer1.h"
 
 #ifdef __cplusplus
 extern "C" {

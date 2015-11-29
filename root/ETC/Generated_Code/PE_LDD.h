@@ -6,7 +6,7 @@
 **     Version     : Component 01.000, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-15, 12:53, # CodeGen: 1
+**     Date/Time   : 2015-11-29, 18:46, # CodeGen: 2
 **     Abstract    :
 **
 **     Settings    :
@@ -67,6 +67,8 @@
 #include "Bit1.h"
 #include "CI2C1.h"
 #include "AS1.h"
+#include "MQX1.h"
+#include "SystemTimer1.h"
 
 
 /*
