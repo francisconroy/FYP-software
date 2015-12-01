@@ -6,7 +6,7 @@
 **     Version     : Component 01.000, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-15, 12:53, # CodeGen: 1
+**     Date/Time   : 2015-11-29, 18:46, # CodeGen: 2
 **     Abstract    :
 **
 **     Settings    :
@@ -56,8 +56,9 @@
 
 /* MODULE PE_LDD. */
 
-/* {Default RTOS Adapter} No RTOS includes */
-/* {Default RTOS Adapter} No RTOS driver includes */
+/* MQX Lite include files */
+#include "mqxlite.h"
+#include "mqxlite_prv.h"
 
 #include "PE_LDD.h"
 #include "Cpu.h"
@@ -69,7 +70,8 @@
 ** Array of initialized device structures of LDD components.
 ** ===========================================================================
 */
-LDD_TDeviceData *PE_LDD_DeviceDataList[6] = {
+LDD_TDeviceData *PE_LDD_DeviceDataList[7] = {
+    NULL,
     NULL,
     NULL,
     NULL,
@@ -155,6 +157,8 @@ bool PE_PeripheralUsed(uint32_t PrphBaseAddress)
     case 0x40066000UL:
     /* Base address allocated by peripheral(s) UART0 */
     case 0x4006A000UL:
+    /* Base address allocated by peripheral(s) SysTick */
+    case 0xE000E010UL:
       result = TRUE;
       break;
     default:

@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.03, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-15, 12:53, # CodeGen: 1
+**     Date/Time   : 2015-11-29, 18:46, # CodeGen: 2
 **     Abstract    :
 **          This component implements a pulse-width modulation generator
 **          that generates signal with variable duty and fixed cycle.
@@ -95,7 +95,9 @@
 /* MODULE PWM1. */
 
 #include "PWM1.h"
-/* {Default RTOS Adapter} No RTOS includes */
+/* MQX Lite include files */
+#include "mqxlite.h"
+#include "mqxlite_prv.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -110,7 +112,7 @@ typedef struct {
 
 typedef PWM1_TDeviceData *PWM1_TDeviceDataPtr; /* Pointer to the device data structure. */
 
-/* {Default RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
+/* {MQXLite RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static PWM1_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
 
 #define CHANNEL 0x00U
@@ -144,7 +146,7 @@ LDD_TDeviceData* PWM1_Init(LDD_TUserData *UserDataPtr)
 {
   /* Allocate device structure */
   PWM1_TDeviceData *DeviceDataPrv;
-  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  /* {MQXLite RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
   DeviceDataPrv->EnUser = TRUE;        /* Set the flag "device enabled" */
@@ -156,7 +158,7 @@ LDD_TDeviceData* PWM1_Init(LDD_TUserData *UserDataPtr)
     /* Unregistration of the device structure */
     PE_LDD_UnregisterDeviceStructure(PE_LDD_COMPONENT_PWM1_ID);
     /* Deallocation of the device structure */
-    /* {Default RTOS Adapter} Driver memory deallocation: Dynamic allocation is simulated, no deallocation code is generated */
+    /* {MQXLite RTOS Adapter} Driver memory deallocation: Dynamic allocation is simulated, no deallocation code is generated */
     return NULL;                       /* If so, then the PWM initialization is also unsuccessful */
   }
   return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */

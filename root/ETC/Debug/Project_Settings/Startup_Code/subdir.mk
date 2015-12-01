@@ -17,7 +17,7 @@ C_DEPS += \
 Project_Settings/Startup_Code/%.o: ../Project_Settings/Startup_Code/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Cross ARM C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/Static_Code/PDD" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/Static_Code/IO_Map" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/Sources" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/Generated_Code" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/MQXLITE/include" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/MQXLITE/config" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/MQXLITE/kernel" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/MQXLITE/psp/cortex_m" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/MQXLITE/psp/cortex_m/core/M4" -I"/Users/francisconroy/Documents/repos/FYP-software/root/ETC/MQXLITE/psp/cortex_m/compiler/cwgcc" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"D:/Users/Josh/Documents/GitHub/FYP-software/root/ETC/Static_Code/PDD" -I"D:/Users/Josh/Documents/GitHub/FYP-software/root/ETC/Static_Code/IO_Map" -I"D:/Users/Josh/Documents/GitHub/FYP-software/root/ETC/Sources" -I"D:/Users/Josh/Documents/GitHub/FYP-software/root/ETC/Generated_Code" -std=c99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

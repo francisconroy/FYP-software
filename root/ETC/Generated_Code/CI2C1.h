@@ -7,7 +7,7 @@
 **     Version     : Component 01.016, Driver 01.07, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-15, 12:53, # CodeGen: 1
+**     Date/Time   : 2015-11-29, 18:46, # CodeGen: 2
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -309,8 +309,8 @@ LDD_TError CI2C1_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *B
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(CI2C1_Interrupt);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void CI2C1_Interrupt(LDD_RTOS_TISRParameter _isrParameter);
 
 /* END CI2C1. */
 

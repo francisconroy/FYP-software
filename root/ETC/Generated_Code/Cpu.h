@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K20P144M72SF1RM Rev. 0, Nov 2011
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-15, 12:53, # CodeGen: 1
+**     Date/Time   : 2015-11-29, 18:46, # CodeGen: 2
 **     Abstract    :
 **
 **     Settings    :
@@ -160,8 +160,8 @@ extern volatile uint8_t SR_lock;
 */
 void PE_low_level_init(void);
 
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(Cpu_INT_NMIInterrupt);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void Cpu_INT_NMIInterrupt(void);
 /*
 ** ===================================================================
 **     Method      :  Cpu_INT_NMIInterrupt (component MK20DX256MC7)

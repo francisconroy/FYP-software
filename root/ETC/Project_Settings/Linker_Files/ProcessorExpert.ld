@@ -10,7 +10,7 @@
 /*##                                   */
 /*##     Compiler  : GNU C Compiler    */
 /*##                                   */
-/*##     Date/Time : 2015-11-15, 12:40, # CodeGen: 0 */
+/*##     Date/Time : 2015-11-29, 18:46, # CodeGen: 2 */
 /*##                                   */
 /*##     Abstract  :                   */
 /*##                                   */
@@ -25,7 +25,7 @@
 
 
 /* Entry Point */
-ENTRY(__thumb_startup)
+ENTRY(__boot)
 
 /* Highest address of the user mode stack */
 _estack = 0x20000000;    /* end of m_data */
@@ -79,6 +79,24 @@ SECTIONS
     KEEP (*(.fini))
 
     . = ALIGN(4);
+
+    /* Additional code content defined by components BEGIN */
+
+    /* MQX Lite component BEGIN */
+    * (KERNEL)
+    __VECTOR_TABLE_START = __vector_table;
+    . = ALIGN(0x4);
+    *(.rdata)
+    . = ALIGN(0x4);
+    *(.exception)
+    . = ALIGN(0x4);
+    __exception_table_start__ = .;
+    /* EXCEPTION */
+    __exception_table_end__ = .;
+    __sinit__ = .;
+    /* STATICINIT */
+    /* MQX Lite component END */
+    /* Additional code content defined by components END */
 
     _etext = .;        /* define a global symbols at end of code */
   } > m_text
@@ -171,7 +189,7 @@ SECTIONS
   ___m_data_20000000_ROMSize = ___m_data_20000000_RAMEnd - ___m_data_20000000_RAMStart;
 
 
-  
+
   /* Uninitialized data section */
   . = ALIGN(4);
   .bss :
@@ -204,17 +222,12 @@ SECTIONS
     LONG(0);
   } > m_data
   
-  text_end = ORIGIN(m_text) + LENGTH(m_text);
-  data_init_end = ___m_data_20000000_ROMStart + SIZEOF(.m_data_20000000) + SIZEOF(.romp);
-  ASSERT( data_init_end <= text_end, "region m_text overflowed with text and data")
-  
   /* User_heap_stack section, used to check that there is enough RAM left */
   ._user_heap_stack :
   {
     . = ALIGN(4);
     PROVIDE ( end = . );
     PROVIDE ( _end = . );
-    PROVIDE ( __end__ = . );
     __heap_addr = .;
     __HeapBase = .;
     . = . + __heap_size;

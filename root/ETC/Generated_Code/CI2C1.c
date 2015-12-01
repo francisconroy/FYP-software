@@ -7,7 +7,7 @@
 **     Version     : Component 01.016, Driver 01.07, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-15, 12:53, # CodeGen: 1
+**     Date/Time   : 2015-11-29, 18:46, # CodeGen: 2
 **     Abstract    :
 **          This component encapsulates the internal I2C communication
 **          interface. The implementation of the interface is based
@@ -149,7 +149,9 @@
 #include "CI2C1.h"
 #include "PORT_PDD.h"
 #include "I2C_PDD.h"
-/* {Default RTOS Adapter} No RTOS includes */
+/* MQX Lite include files */
+#include "mqxlite.h"
+#include "mqxlite_prv.h"
 #include "IO_Map.h"
 
 #ifdef __cplusplus
@@ -168,15 +170,14 @@ typedef struct {
   uint8_t *InpPtrM;                    /* Pointer to input buffer for Master mode */
   LDD_I2C_TSize OutLenM;               /* The counter of output bufer's content */
   uint8_t *OutPtrM;                    /* Pointer to output buffer for Master mode */
+  LDD_RTOS_TISRVectorSettings SavedISRSettings; /* {MQXLite RTOS Adapter} Saved settings of allocated interrupt vector */
   LDD_TUserData *UserData;             /* RTOS device data structure */
 } CI2C1_TDeviceData;
 
 typedef CI2C1_TDeviceData *CI2C1_TDeviceDataPtr; /* Pointer to the device data structure. */
 
-/* {Default RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
+/* {MQXLite RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static CI2C1_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
-/* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
-static CI2C1_TDeviceDataPtr INT_I2C0__DEFAULT_RTOS_ISRPARAM;
 
 #define AVAILABLE_EVENTS_MASK (LDD_I2C_ON_MASTER_BLOCK_SENT | LDD_I2C_ON_MASTER_BLOCK_RECEIVED)
 
@@ -191,10 +192,10 @@ static CI2C1_TDeviceDataPtr INT_I2C0__DEFAULT_RTOS_ISRPARAM;
 ** ===================================================================
 */
 
-PE_ISR(CI2C1_Interrupt)
+void CI2C1_Interrupt(LDD_RTOS_TISRParameter _isrParameter)
 {
-  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
-  CI2C1_TDeviceDataPtr DeviceDataPrv = INT_I2C0__DEFAULT_RTOS_ISRPARAM;
+  /* {MQXLite RTOS Adapter} ISR parameter is passed as parameter from RTOS interrupt dispatcher */
+  CI2C1_TDeviceDataPtr DeviceDataPrv = (CI2C1_TDeviceDataPtr)_isrParameter;
   register uint8_t Status;             /* Temporary variable for status register */
 
   Status = I2C_PDD_ReadStatusReg(I2C0_BASE_PTR); /* Safe status register */
@@ -284,14 +285,16 @@ LDD_TDeviceData* CI2C1_Init(LDD_TUserData *UserDataPtr)
 {
   /* Allocate HAL device structure */
   CI2C1_TDeviceData *DeviceDataPrv;
-  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  /* {MQXLite RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
 
   DeviceDataPrv->UserData = UserDataPtr; /* Store the RTOS device structure */
 
   /* Allocate interrupt vector */
-  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_I2C0__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
+  /* {MQXLite RTOS Adapter} Save old and set new interrupt vector (function handler and ISR parameter) */
+  /* Note: Exception handler for interrupt is not saved, because it is not modified */
+  DeviceDataPrv->SavedISRSettings.isrData = _int_get_isr_data(LDD_ivIndex_INT_I2C0);
+  DeviceDataPrv->SavedISRSettings.isrFunction = _int_install_isr(LDD_ivIndex_INT_I2C0, CI2C1_Interrupt, DeviceDataPrv);
   DeviceDataPrv->SerFlag = 0x00U;      /* Reset all flags */
   DeviceDataPrv->SendStop = LDD_I2C_SEND_STOP; /* Set variable for sending stop condition (for master mode) */
   DeviceDataPrv->InpLenM = 0x00U;      /* Set zero counter of data of reception */
@@ -401,8 +404,8 @@ LDD_TError CI2C1_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buff
       return ERR_BUSY;                 /* If yes then error */
     }
   }
-  /* {Default RTOS Adapter} Critical section begin, general PE function is used */
-  EnterCritical();
+  /* {MQXLite RTOS Adapter} Critical section begin (RTOS function call is defined by MQXLite RTOS Adapter property) */
+  _int_disable();
   DeviceDataPrv->SerFlag |= MASTER_IN_PROGRES; /* Set flag "busy" */
   DeviceDataPrv->OutPtrM = (uint8_t *)BufferPtr; /* Save pointer to data for transmitting */
   DeviceDataPrv->OutLenM = Size;       /* Set the counter of output bufer's content */
@@ -414,8 +417,8 @@ LDD_TError CI2C1_MasterSendBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *Buff
     I2C_PDD_SetMasterMode(I2C0_BASE_PTR, I2C_PDD_MASTER_MODE); /* If no then start signal generated */
   }
   I2C_PDD_WriteDataReg(I2C0_BASE_PTR, 0x00U); /* Send slave address */
-  /* {Default RTOS Adapter} Critical section end, general PE function is used */
-  ExitCritical();
+  /* {MQXLite RTOS Adapter} Critical section ends (RTOS function call is defined by MQXLite RTOS Adapter property) */
+  _int_enable();
   return ERR_OK;                       /* OK */
 }
 
@@ -490,8 +493,8 @@ LDD_TError CI2C1_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *B
       return ERR_BUSY;               /* If yes then error */
     }
   }
-  /* {Default RTOS Adapter} Critical section begin, general PE function is used */
-  EnterCritical();
+  /* {MQXLite RTOS Adapter} Critical section begin (RTOS function call is defined by MQXLite RTOS Adapter property) */
+  _int_disable();
   DeviceDataPrv->SerFlag |= MASTER_IN_PROGRES; /* Set flag "busy" */
   DeviceDataPrv->InpPtrM = (uint8_t *)BufferPtr; /* Save pointer to data for reception */
   DeviceDataPrv->InpLenM = Size;       /* Set the counter of input bufer's content */
@@ -503,8 +506,8 @@ LDD_TError CI2C1_MasterReceiveBlock(LDD_TDeviceData *DeviceDataPtr, LDD_TData *B
     I2C_PDD_SetMasterMode(I2C0_BASE_PTR, I2C_PDD_MASTER_MODE); /* If no then start signal generated */
   }
   I2C_PDD_WriteDataReg(I2C0_BASE_PTR, 0x01U); /* Send slave address */
-  /* {Default RTOS Adapter} Critical section end, general PE function is used */
-  ExitCritical();
+  /* {MQXLite RTOS Adapter} Critical section ends (RTOS function call is defined by MQXLite RTOS Adapter property) */
+  _int_enable();
   return ERR_OK;                       /* OK */
 }
 

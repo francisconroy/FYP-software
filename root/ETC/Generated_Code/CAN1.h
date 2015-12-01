@@ -7,7 +7,7 @@
 **     Version     : Component 01.112, Driver 01.07, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-15, 12:53, # CodeGen: 1
+**     Date/Time   : 2015-11-29, 18:46, # CodeGen: 2
 **     Abstract    :
 **         This component "CAN_LDD" implements a CAN serial channel.
 **     Settings    :
@@ -154,6 +154,12 @@ typedef struct {
   LDD_CAN_TMBIndex BuffersNumber;      /* Number of message buffers */
   LDD_CAN_TBufferMask RxBufferMask;    /* Bit mask for message buffers configured as receive */
   LDD_CAN_TBufferMask TxBufferMask;    /* Bit mask for message buffers configured as transmit */
+  LDD_RTOS_TISRVectorSettings SavedErrorISRSettings; /* {MQXLite RTOS Adapter} Saved settings of allocated error interrupt vector */
+  LDD_RTOS_TISRVectorSettings SavedBusOffISRSettings; /* {MQXLite RTOS Adapter} Saved settings of allocated bus error interrupt vector */
+  LDD_RTOS_TISRVectorSettings SavedMessageBufferISRSettings; /* {MQXLite RTOS Adapter} Saved settings of allocated message buffer interrupt vector */
+  LDD_RTOS_TISRVectorSettings SavedTxWarningISRSettings; /* {MQXLite RTOS Adapter} Saved settings of allocated Tx Warning interrupt vector */
+  LDD_RTOS_TISRVectorSettings SavedRxWarningISRSettings; /* {MQXLite RTOS Adapter} Saved settings of allocated Rx Warning interrupt vector */
+  LDD_RTOS_TISRVectorSettings SavedWakeUpISRSettings; /* {MQXLite RTOS Adapter} Saved settings of Wake Up buffer interrupt vector */
   LDD_TUserData *UserData;             /* RTOS device data structure */
 } CAN1_TDeviceData;
 
@@ -296,8 +302,8 @@ LDD_TError CAN1_SendFrame(LDD_TDeviceData *DeviceDataPtr, LDD_CAN_TMBIndex Buffe
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(CAN1_InterruptRxTx);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void CAN1_InterruptRxTx(LDD_RTOS_TISRParameter _isrParameter);
 
 /*
 ** ===================================================================
@@ -308,8 +314,8 @@ PE_ISR(CAN1_InterruptRxTx);
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(CAN1_InterruptTxWarn);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void CAN1_InterruptTxWarn(LDD_RTOS_TISRParameter _isrParameter);
 
 /*
 ** ===================================================================
@@ -320,8 +326,8 @@ PE_ISR(CAN1_InterruptTxWarn);
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(CAN1_InterruptRxWarn);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void CAN1_InterruptRxWarn(LDD_RTOS_TISRParameter _isrParameter);
 
 /*
 ** ===================================================================
@@ -332,8 +338,8 @@ PE_ISR(CAN1_InterruptRxWarn);
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(CAN1_InterruptBusOff);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void CAN1_InterruptBusOff(LDD_RTOS_TISRParameter _isrParameter);
 
 /*
 ** ===================================================================
@@ -344,8 +350,8 @@ PE_ISR(CAN1_InterruptBusOff);
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(CAN1_InterruptError);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void CAN1_InterruptError(LDD_RTOS_TISRParameter _isrParameter);
 
 /*
 ** ===================================================================
@@ -356,8 +362,8 @@ PE_ISR(CAN1_InterruptError);
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
-/* {Default RTOS Adapter} ISR function prototype */
-PE_ISR(CAN1_InterruptWakeUp);
+/* {MQXLite RTOS Adapter} ISR function prototype */
+void CAN1_InterruptWakeUp(LDD_RTOS_TISRParameter _isrParameter);
 
 
 /*

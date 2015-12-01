@@ -26,9 +26,5 @@ S_UPPER_DEPS :=
 SUBDIRS := \
 Sources \
 Project_Settings/Startup_Code \
-MQXLITE/psp/cortex_m \
-MQXLITE/psp/cortex_m/core/M4 \
-MQXLITE/kernel \
-MQXLITE/config \
 Generated_Code \
 
