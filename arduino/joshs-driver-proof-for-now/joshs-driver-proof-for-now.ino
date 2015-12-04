@@ -43,6 +43,8 @@ void setup() {
   analogWriteFrequency(D1PWM, 5000);
 
   Serial.begin(9600);
+  delay(2000);
+  Serial.println("Starting shifter");
 }
 
 void loop() {
