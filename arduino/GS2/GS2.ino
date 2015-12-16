@@ -1,5 +1,6 @@
 /*
-   NUR15 Paddle opperated remote n gear shifter controller
+   Paddle operation regarding NUR15
+   Gear shifter controller
 
    Written By Francis Conroy and Josh Chadwick
    4/12/2015
@@ -27,12 +28,14 @@
 #define TIMEON 60
 #define HALFTIMEON 30
 
+
 //Variables
 int state; // state machine current state
 
 int shiftUp; // status of up paddle
 int shiftDown; // status of down paddle/button
 int neutralPush; // status of neutral button
+int neutralLight; // status of neutral light
 
 int currentGear; // current gear as assumed by controller
 
@@ -63,11 +66,12 @@ void setup() {
   // delay to remove transients
   delay(2000);
 
-  state = 0; // state machine current state
+  state = -1; // state machine current state
 
   shiftUp = 1; // not shifting
   shiftDown = 1; // not shifting
   neutralPush = 1; // not pushing
+  neutralLight = 1; // not showing
 
   currentGear = 0; // neutral
 
@@ -78,17 +82,60 @@ void setup() {
 void loop() {
   switch (state)
   {
+    case -1:
+      {
+        writeToScreen("go n");
+        shiftUp = digitalRead(UP_PADDLE);
+        shiftDown = digitalRead(DOWN_PADDLE);
+        neutralPush = digitalRead(NEUTRAL_BUTTON);
+        neutralLight = digitalRead(NEUTRAL_LIGHT);
+
+        // SHIFT UP
+        if (shiftUp == 0 && shiftDown == 1 && neutralPush == 1)
+        {
+          doShiftUp();
+          break;
+        }
+        // SHIFT DOWN
+        if (shiftUp == 1 && shiftDown == 0 && neutralPush == 1)
+        {
+          doShiftDown();
+          break;
+        }
+        // SHIFT UP TO NEUTRAL
+        if (shiftUp == 0 && shiftDown == 1 && neutralPush == 0)
+        {
+          doShiftNeutralUp();
+          break;
+        }
+        // SHIFT DOWN TO NEUTRAL
+        if (shiftUp == 1 && shiftDown == 0 && neutralPush == 0)
+        {
+          doShiftNeutralDown();
+          break;
+        }
+        delay(1000);
+        if ((neutralLight = digitalRead(NEUTRAL_LIGHT)) == LOW) // now in neutral
+        {
+          state = 0;
+          writeToScreen("    ");
+          break;
+        }
+      }
+      break;
     case 0:
       {
         shiftUp = digitalRead(UP_PADDLE);
         shiftDown = digitalRead(DOWN_PADDLE);
         neutralPush = digitalRead(NEUTRAL_BUTTON);
+        neutralLight = digitalRead(NEUTRAL_LIGHT);
 
         // SHIFT UP
         if (shiftUp == 0 && shiftDown == 1 && neutralPush == 1)
         {
           if (doShiftUp())
           {
+            currentGear++;
             delay(500);
             if ((shiftUp = digitalRead(UP_PADDLE)) == LOW)
             {
@@ -106,6 +153,7 @@ void loop() {
         {
           if (doShiftDown())
           {
+            currentGear--;
             delay(500);
             if ((shiftDown = digitalRead(DOWN_PADDLE)) == LOW)
             {
@@ -125,6 +173,7 @@ void loop() {
           {
             if (doShiftNeutral())
             {
+              currentGear = 0;
               delay(500);
               if ((neutralPush = digitalRead(NEUTRAL_BUTTON)) == LOW)
               {
@@ -173,8 +222,14 @@ void loop() {
 
 int verifyGear(int assumedGear)
 {
-
-  return 0;
+  if (state == -1)
+  {
+    return 0;
+  }
+  else
+  {
+    return 0;
+  }
 }
 
 bool doShiftUp()
@@ -214,6 +269,7 @@ bool doShiftUp()
         return false;
       }
   }
+  return false;
 }
 
 bool doShiftDown()
@@ -253,87 +309,98 @@ bool doShiftDown()
         return false;
       }
   }
+  return false;
+}
+
+bool doShiftNeutralUp()
+{
+  digitalWrite(D1_IN_A, HIGH);
+  digitalWrite(D1_IN_B, LOW); // brake to GND
+  currentTime = startTime = millis();
+  while ((currentTime - startTime) < HALFTIMEON)
+  {
+    currentTime = millis();
+    analogWrite(D2_PWM, 255);
+  }
+  switch (verifyGear(0))
+  {
+    case 0:
+      {
+        digitalWrite(D1_IN_A, LOW);
+        digitalWrite(D1_IN_B, LOW); // brake to GND
+        analogWrite(D1_PWM, 0);
+        delay(250);
+        return true;
+      }
+    case 1:
+      {
+        digitalWrite(D1_IN_A, LOW);
+        digitalWrite(D1_IN_B, LOW); // brake to GND
+        analogWrite(D1_PWM, 0);
+        state = 1;
+        return false;
+      }
+    case 2:
+      {
+        digitalWrite(D1_IN_A, LOW);
+        digitalWrite(D1_IN_B, LOW); // brake to GND
+        analogWrite(D1_PWM, 0);
+        state = 2;
+        return false;
+      }
+  }
+  return false;
+}
+
+bool doShiftNeutralDown()
+{
+  digitalWrite(D2_IN_A, HIGH);
+  digitalWrite(D2_IN_B, LOW); // brake to GND
+  currentTime = startTime = millis();
+  while ((currentTime - startTime) < HALFTIMEON)
+  {
+    currentTime = millis();
+    analogWrite(D2_PWM, 255);
+  }
+  switch (verifyGear(0))
+  {
+    case 0:
+      {
+        digitalWrite(D2_IN_A, LOW);
+        digitalWrite(D2_IN_B, LOW); // brake to GND
+        analogWrite(D2_PWM, 0);
+        delay(250);
+        return true;
+      }
+    case 1:
+      {
+        digitalWrite(D2_IN_A, LOW);
+        digitalWrite(D2_IN_B, LOW); // brake to GND
+        analogWrite(D2_PWM, 0);
+        state = 1;
+        return false;
+      }
+    case 2:
+      {
+        digitalWrite(D2_IN_A, LOW);
+        digitalWrite(D2_IN_B, LOW); // brake to GND
+        analogWrite(D2_PWM, 0);
+        state = 2;
+        return false;
+      }
+  }
+  return false;
 }
 
 bool doShiftNeutral()
 {
   if (currentGear == 1)
   {
-    digitalWrite(D1_IN_A, HIGH);
-    digitalWrite(D1_IN_B, LOW); // brake to GND
-    currentTime = startTime = millis();
-    while ((currentTime - startTime) < HALFTIMEON)
-    {
-      currentTime = millis();
-      analogWrite(D2_PWM, 255);
-    }
-    switch (verifyGear(0))
-    {
-      case 0:
-        {
-          digitalWrite(D1_IN_A, LOW);
-          digitalWrite(D1_IN_B, LOW); // brake to GND
-          analogWrite(D1_PWM, 0);
-          delay(250);
-          return true;
-        }
-      case 1:
-        {
-          digitalWrite(D1_IN_A, LOW);
-          digitalWrite(D1_IN_B, LOW); // brake to GND
-          analogWrite(D1_PWM, 0);
-          state = 1;
-          return false;
-        }
-      case 2:
-        {
-          digitalWrite(D1_IN_A, LOW);
-          digitalWrite(D1_IN_B, LOW); // brake to GND
-          analogWrite(D1_PWM, 0);
-          state = 2;
-          return false;
-        }
-    }
-    return false;
+    return doShiftNeutralUp();
   }
   else if (currentGear == 2)
   {
-    digitalWrite(D2_IN_A, HIGH);
-    digitalWrite(D2_IN_B, LOW); // brake to GND
-    currentTime = startTime = millis();
-    while ((currentTime - startTime) < HALFTIMEON)
-    {
-      currentTime = millis();
-      analogWrite(D2_PWM, 255);
-    }
-    switch (verifyGear(0))
-    {
-      case 0:
-        {
-          digitalWrite(D2_IN_A, LOW);
-          digitalWrite(D2_IN_B, LOW); // brake to GND
-          analogWrite(D2_PWM, 0);
-          delay(250);
-          return true;
-        }
-      case 1:
-        {
-          digitalWrite(D2_IN_A, LOW);
-          digitalWrite(D2_IN_B, LOW); // brake to GND
-          analogWrite(D2_PWM, 0);
-          state = 1;
-          return false;
-        }
-      case 2:
-        {
-          digitalWrite(D2_IN_A, LOW);
-          digitalWrite(D2_IN_B, LOW); // brake to GND
-          analogWrite(D2_PWM, 0);
-          state = 2;
-          return false;
-        }
-    }
-    return false;
+    return doShiftNeutralDown();
   }
   else
   {
@@ -347,6 +414,10 @@ void writeToScreen(String str)
   {
     switch (str[i])
     {
+      case ' ':
+        //matrix.writeDigitRaw(0, B00000000);
+        break;
+
       case '1':
         //matrix.writeDigitRaw(0, B00110000);
         break;
@@ -363,11 +434,17 @@ void writeToScreen(String str)
       case 'E':
         //matrix.writeDigitRaw(0, B01001111);
         break;
+      case 'g':
+        //matrix.writeDigitRaw(0, B01111101);
+        break;
       case 'h':
         //matrix.writeDigitRaw(0, B01100110);
         break;
       case 'l':
         //matrix.writeDigitRaw(0, B00110000);
+        break;
+      case 'n':
+        //matrix.writeDigitRaw(0, B01100010);
         break;
       case 'o':
         //matrix.writeDigitRaw(0, B01100011);

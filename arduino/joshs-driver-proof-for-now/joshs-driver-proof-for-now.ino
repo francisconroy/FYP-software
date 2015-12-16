@@ -1,10 +1,10 @@
-#define D2INA 3
-#define D2INB 4
-#define D2PWM 5
+#define D2INA 3 // pink
+#define D2INB 4 // green
+#define D2PWM 5 // blue
 
-#define D1INA 8
-#define D1INB 10
-#define D1PWM 9
+#define D1INA 8 // black
+#define D1INB 10 // grey
+#define D1PWM 9 // white
 
 #define SHDN 12
 #define SHUP 11
@@ -13,8 +13,11 @@
 
 #define NEUTRALBUTTON 18
 
-#define TIMEON 60
+#define UPTIMEON 220
+#define DOWNTIMEON 220
 #define HALFTIMEON 30
+#define DELAYTIME 250
+
 int shdn = 1; //not shifting
 unsigned long time1 = 0;
 unsigned long currtime = 0;
@@ -53,16 +56,22 @@ void loop() {
   //SHIFT DOWN
   if (shdn == 0 && shup == 1)
   {
-    Serial.println("Shift down received");
-    shiftDown();
-    delay(250);
+    delayMicroseconds(100);
+    if (shdn == 0 && shup == 1)
+    {
+      Serial.println("Shift down received");
+      shiftDown();
+    }
   }
   //SHIFT UP
   else if (shup == 0 && shdn == 1)
   {
-    Serial.println("Shift up received");
-    shiftUp();
-    delay(250);
+    delayMicroseconds(100);
+    if (shup == 0 && shdn == 1)
+    {
+      Serial.println("Shift up received");
+      shiftUp();
+    }
   }
 }
 
@@ -84,7 +93,7 @@ void shiftDown()
   }
   else
   {
-    while ((currtime - time1) < TIMEON)
+    while ((currtime - time1) < DOWNTIMEON)
     {
       currtime = millis();
       analogWrite(D2PWM, 255);
@@ -93,7 +102,7 @@ void shiftDown()
   digitalWrite(D2INA, LOW);
   digitalWrite(D2INB, LOW); //brake to GND
   analogWrite(D2PWM, 0);
-  delay(1000);
+  delay(DELAYTIME);
   //digitalWrite(LED, LOW);
 
 }
@@ -116,7 +125,7 @@ void shiftUp()
   }
   else
   {
-    while ((currtime - time1) < TIMEON)
+    while ((currtime - time1) < UPTIMEON)
     {
       currtime = millis();
       analogWrite(D2PWM, 255);
@@ -125,7 +134,7 @@ void shiftUp()
   digitalWrite(D1INA, LOW);
   digitalWrite(D1INB, LOW); //brake to GND
   analogWrite(D1PWM, 0);
-  delay(1000);
+  delay(DELAYTIME);
   //digitalWrite(LED, LOW);
 
 }
